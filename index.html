@@ -13,6 +13,7 @@
     --text:#3E3A32;
     --text-soft:#6B6759;
     --line: rgba(62,58,50,0.15);
+    --line-dark: rgba(238,234,224,0.18);
   }
 
   *{box-sizing:border-box;margin:0;padding:0;}
@@ -53,6 +54,7 @@
     padding:22px 60px;
     max-width:1360px;
     margin:0 auto;
+    gap:20px;
   }
 
   .logo-name{
@@ -69,16 +71,18 @@
 
   nav ul{
     display:flex;
-    gap:44px;
+    gap:32px;
     list-style:none;
+    flex-wrap:wrap;
   }
 
   nav a{
-    font-size:16px;
+    font-size:15px;
     color:var(--text);
     padding:6px 0;
     border-bottom:2px solid transparent;
     transition:color .2s ease, border-color .2s ease;
+    white-space:nowrap;
   }
 
   nav a.active,
@@ -96,6 +100,7 @@
     border:none;
     cursor:pointer;
     transition:background .2s ease, transform .2s ease;
+    white-space:nowrap;
   }
   .btn:hover{
     background:var(--olive-dark);
@@ -202,6 +207,30 @@
     margin-bottom:60px;
   }
 
+  /* ---------- TAG PILLS (borrowed from reference portfolio) ---------- */
+
+  .tag-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  .tag-pill{
+    display:inline-flex;
+    align-items:center;
+    padding:11px 22px;
+    border:1px solid var(--olive);
+    border-radius:999px;
+    font-size:14px;
+    color:var(--olive-dark);
+    background:transparent;
+  }
+
+  .tag-pill.on-dark{
+    border-color:rgba(238,234,224,.55);
+    color:var(--cream);
+  }
+
   /* ---------- ABOUT ---------- */
 
   .about-grid{
@@ -242,7 +271,56 @@
     margin-top:40px;
   }
 
-  /* ---------- FORMATS ---------- */
+  /* ---------- WHY ME / STATS (new — from reference "WHY ME?" slide) ---------- */
+
+  .stats-section{
+    background:var(--olive-dark);
+    color:var(--cream);
+  }
+  .stats-section .eyebrow{ color:rgba(238,234,224,.7); }
+  .stats-section .section-title{ color:var(--cream); }
+
+  .stats-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:50px;
+  }
+
+  .stat-item{
+    border-top:1px solid var(--line-dark);
+    padding-top:28px;
+  }
+
+  .stat-num{
+    font-size:56px;
+    font-weight:800;
+    margin-bottom:16px;
+    line-height:1;
+  }
+
+  .stat-label{
+    font-size:17px;
+    color:rgba(238,234,224,.8);
+    line-height:1.5;
+    max-width:280px;
+  }
+
+  /* ---------- FORMATS / SKILLS ---------- */
+
+  .formats-head{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    margin-bottom:60px;
+    align-items:start;
+  }
+
+  .formats-note{
+    font-size:17px;
+    color:var(--text-soft);
+    line-height:1.7;
+  }
+  .formats-note .tag-pill{ margin-bottom:18px; }
 
   .formats-columns{
     display:grid;
@@ -253,17 +331,26 @@
   }
 
   .format-row{
+    padding:26px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .format-row .format-title{
     display:flex;
     align-items:baseline;
     gap:20px;
-    padding:26px 0;
-    border-bottom:1px solid var(--line);
     font-size:20px;
+    margin-bottom:8px;
   }
   .format-row .num{
     color:var(--olive-dark);
     font-weight:600;
     min-width:56px;
+  }
+  .format-row .format-desc{
+    font-size:15px;
+    color:var(--text-soft);
+    padding-left:76px;
+    line-height:1.5;
   }
 
   /* ---------- PORTFOLIO ---------- */
@@ -316,6 +403,52 @@
     z-index:2;
   }
   .play-btn svg{width:20px;height:20px;fill:var(--text);margin-left:3px;}
+
+  /* ---------- CASE STUDIES (new — from reference "PROJECT 01 / 02" slides) ---------- */
+
+  .cases{
+    padding-top:0;
+  }
+
+  .case-row{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:70px;
+    align-items:center;
+    padding:70px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .case-row:last-child{ border-bottom:none; }
+  .case-row.reverse .case-media{ order:2; }
+  .case-row.reverse .case-copy{ order:1; }
+
+  .case-media{
+    width:100%;
+    aspect-ratio:3/4;
+    object-fit:cover;
+    border-radius:2px;
+  }
+
+  .case-num{
+    font-size:15px;
+    color:var(--text-soft);
+    margin-bottom:14px;
+  }
+
+  .case-title{
+    font-size:30px;
+    font-weight:700;
+    color:var(--olive-dark);
+    margin-bottom:20px;
+  }
+
+  .case-desc{
+    font-size:17px;
+    color:var(--text);
+    line-height:1.7;
+    margin-bottom:28px;
+    max-width:520px;
+  }
 
   /* ---------- STRENGTHS ---------- */
 
@@ -427,31 +560,80 @@
     margin-top:60px;
   }
 
+  /* ---------- RATE CARD (new — from reference "RATE CARD" slide) ---------- */
+
+  .rate-section{
+    background:var(--cream-2);
+  }
+
+  .rate-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+  }
+
+  .rate-intro{
+    font-size:19px;
+    color:var(--text);
+    line-height:1.7;
+    max-width:420px;
+  }
+
+  .rate-list{
+    list-style:none;
+  }
+  .rate-list li{
+    font-size:17px;
+    color:var(--text);
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .rate-list li span{
+    color:var(--text-soft);
+  }
+
+  .rate-note{
+    margin-top:30px;
+    font-size:15px;
+    color:var(--text-soft);
+  }
+
   /* ---------- FOOTER ---------- */
 
   footer{
-    background:var(--cream-2);
+    background:#1b1a16;
+    color:var(--cream);
     padding-top:70px;
+  }
+
+  .footer-meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:40px;
+    border-bottom:1px solid var(--line-dark);
+    font-size:15px;
+    color:rgba(238,234,224,.7);
   }
 
   .footer-inner{
     display:grid;
-    grid-template-columns:1.3fr 1fr 1fr auto;
+    grid-template-columns:1.3fr 1fr 1.2fr;
     gap:40px;
-    padding-bottom:60px;
+    padding:60px 0;
   }
 
   .footer-name{
     font-size:44px;
     font-weight:800;
-    color:var(--olive-dark);
-    align-self:flex-end;
+    color:var(--cream);
+    align-self:flex-start;
   }
 
   .footer-col h4{
     font-size:15px;
     letter-spacing:.05em;
-    color:var(--text-soft);
+    color:rgba(238,234,224,.6);
     margin-bottom:18px;
   }
 
@@ -459,7 +641,27 @@
     display:block;
     font-size:17px;
     margin-bottom:12px;
-    color:var(--text);
+    color:var(--cream);
+  }
+
+  .contact-list{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .contact-row{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    font-size:16px;
+    padding:11px 0;
+    border-bottom:1px solid var(--line-dark);
+  }
+  .contact-row span:first-child{
+    color:rgba(238,234,224,.6);
+  }
+  .contact-row a, .contact-row span:last-child{
+    color:var(--cream);
   }
 
   .social-row{
@@ -479,22 +681,20 @@
   .social-icon svg{width:20px;height:20px;fill:#fff;}
 
   .footer-credit{
-    align-self:flex-start;
     font-size:14px;
-    color:var(--text-soft);
+    color:rgba(238,234,224,.5);
     text-decoration:underline;
   }
 
   .footer-disclaimer{
     font-size:13px;
-    color:var(--text-soft);
-    text-align:right;
+    color:rgba(238,234,224,.5);
     max-width:260px;
-    margin-left:auto;
+    margin-top:24px;
   }
 
   .footer-bottom{
-    background:#161611;
+    background:#0f0f0c;
     color:#c9c6bc;
     text-align:center;
     padding:22px 0;
@@ -514,13 +714,20 @@
     section{padding:70px 0;}
     .about-grid{grid-template-columns:1fr;}
     .about-photo{aspect-ratio:16/10;}
+    .stats-grid{grid-template-columns:1fr;gap:30px;}
+    .formats-head{grid-template-columns:1fr;gap:30px;}
     .formats-columns{grid-template-columns:1fr;}
+    .format-row .format-desc{padding-left:0;margin-top:6px;}
     .portfolio-grid{grid-template-columns:1fr;}
+    .case-row, .case-row.reverse{grid-template-columns:1fr;gap:26px;}
+    .case-row.reverse .case-media{order:1;}
+    .case-row.reverse .case-copy{order:2;}
     .strengths-top, .strengths-grid{grid-template-columns:1fr;}
     .process-row{grid-template-columns:1fr;gap:14px;}
     .process-photo-band{height:280px;}
+    .rate-grid{grid-template-columns:1fr;}
     .footer-inner{grid-template-columns:1fr;}
-    .footer-disclaimer{text-align:left;margin-left:0;}
+    .footer-meta{flex-direction:column;align-items:flex-start;gap:8px;}
     .hero-inner{padding:30px 24px;flex-direction:column;align-items:flex-start;}
     .hero-side{align-items:flex-start;text-align:left;}
   }
@@ -537,10 +744,12 @@
     <nav>
       <ul>
         <li><a href="#about">обо мне</a></li>
+        <li><a href="#why-me">почему я</a></li>
         <li><a href="#formats">форматы</a></li>
         <li><a href="#portfolio">портфолио</a></li>
         <li><a href="#strengths">сильные стороны</a></li>
         <li><a href="#process">процесс</a></li>
+        <li><a href="#rate">прайс</a></li>
       </ul>
     </nav>
     <a href="#contact" class="btn">Обсудить проект</a>
@@ -586,28 +795,83 @@
       </div>
       <div class="about-detail">
         <p><strong>Более N лет</strong> работаю с видеоконтентом и продвижением продуктов. <strong>Благодаря опыту</strong> в продажах понимаю, как показать преимущества товара так, чтобы зритель захотел его купить</p>
-        <p>Для меня важно не просто снять красивое видео, а передать ценность продукта и вызвать доверие у аудитории</p>
+        <p>Для меня важно не просто снять красивое видео, а передать ценность продукта и вызвать доверие у аудитории. Мне интересно работать с разными нишами: beauty, fashion, рестораны и кафе, доставки, техника, сервисы, путешествия, товары для дома</p>
       </div>
       <img class="about-photo" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=900&auto=format&fit=crop" alt="Фото автора">
     </div>
   </div>
 </section>
 
-<!-- FORMATS + PORTFOLIO INTRO -->
+<!-- WHY ME / STATS -->
+<section id="why-me" class="stats-section">
+  <div class="wrap">
+    <span class="eyebrow">[ почему я ]</span>
+    <h2 class="section-title">Доверие, которое считывается с первого кадра</h2>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Индивидуальный подход к каждому проекту</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">+5</div>
+        <div class="stat-label">Форматов контента: UGC, Reels, обзоры, примерки, voice-over</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Идей для новых креативов под ваш бренд</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATS + SKILLS -->
 <section id="formats">
   <div class="wrap">
-    <span class="eyebrow">[ форматы ]</span>
+    <span class="eyebrow">[ форматы и навыки ]</span>
     <h2 class="section-title">Создаю форматы, которые работают на ваш бренд</h2>
+
+    <div class="formats-head">
+      <div class="formats-note">
+        <span class="tag-pill">как я работаю</span>
+        <p>Каждый проект начинается с изучения бренда, продукта и целевой аудитории. Затем я подбираю концепцию, пишу сценарий, снимаю, монтирую и адаптирую контент под площадку. В результате бренд получает современные UGC-видео, которые выглядят нативно и вызывают доверие</p>
+      </div>
+      <div class="tag-row">
+        <span class="tag-pill">Creative Scriptwriting</span>
+        <span class="tag-pill">Visual Storytelling</span>
+        <span class="tag-pill">Cross-Platform Adaptation</span>
+        <span class="tag-pill">Native Advertising</span>
+        <span class="tag-pill">Product Research</span>
+      </div>
+    </div>
+
     <div class="formats-columns">
       <div>
-        <div class="format-row"><span class="num">(01)</span> UGC-обзоры</div>
-        <div class="format-row"><span class="num">(02)</span> Trend</div>
-        <div class="format-row"><span class="num">(03)</span> Процесс-туториалы</div>
+        <div class="format-row">
+          <div class="format-title"><span class="num">(01)</span> UGC-обзоры</div>
+          <div class="format-desc">Честная подача продукта глазами зрителя — от первого впечатления до вывода</div>
+        </div>
+        <div class="format-row">
+          <div class="format-title"><span class="num">(02)</span> Trend</div>
+          <div class="format-desc">Съёмка под актуальные тренды и переходы, чтобы удержать внимание в первые секунды</div>
+        </div>
+        <div class="format-row">
+          <div class="format-title"><span class="num">(03)</span> Процесс-туториалы</div>
+          <div class="format-desc">Пошаговая демонстрация использования продукта — понятно и по делу</div>
+        </div>
       </div>
       <div>
-        <div class="format-row"><span class="num">(04)</span> Lifestyle</div>
-        <div class="format-row"><span class="num">(05)</span> Unboxing</div>
-        <div class="format-row"><span class="num">(06)</span> Product Demo</div>
+        <div class="format-row">
+          <div class="format-title"><span class="num">(04)</span> Lifestyle</div>
+          <div class="format-desc">Атмосферное видео, встраивающее продукт в повседневную жизнь</div>
+        </div>
+        <div class="format-row">
+          <div class="format-title"><span class="num">(05)</span> Unboxing</div>
+          <div class="format-desc">Живая распаковка с акцентом на эмоции и первое впечатление</div>
+        </div>
+        <div class="format-row">
+          <div class="format-title"><span class="num">(06)</span> Product Demo</div>
+          <div class="format-desc">Наглядная демонстрация преимуществ и текстуры продукта крупным планом</div>
+        </div>
       </div>
     </div>
   </div>
@@ -631,6 +895,37 @@
     <div class="portfolio-card" style="background-image:url('https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=900&auto=format&fit=crop');">
       <span class="portfolio-tag">Beauty</span>
       <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+    </div>
+  </div>
+
+  <!-- CASE STUDIES -->
+  <div class="wrap cases">
+    <div class="case-row">
+      <img class="case-media" src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=900&auto=format&fit=crop" alt="Кейс 01">
+      <div class="case-copy">
+        <div class="case-num">Кейс 01</div>
+        <div class="case-title">Название бренда · Beauty</div>
+        <p class="case-desc">Динамичное UGC-видео с трендовым переходом, которое привлекает внимание в первые секунды. Акцент сделан на посадке продукта, визуальном преображении и эмоциональной подаче, чтобы контент выглядел естественно и органично вписывался в ленту</p>
+        <div class="tag-row">
+          <span class="tag-pill">Creative Concept</span>
+          <span class="tag-pill">Trend Research</span>
+          <span class="tag-pill">Filming</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-row reverse">
+      <img class="case-media" src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=900&auto=format&fit=crop" alt="Кейс 02">
+      <div class="case-copy">
+        <div class="case-num">Кейс 02</div>
+        <div class="case-title">Название бренда · Косметика</div>
+        <p class="case-desc">UGC-видео с акцентом на текстуру продукта, процесс использования и ключевые преимущества. Главной задачей было показать продукт максимально естественно, вызвать доверие и помочь зрителю быстро понять, кому он подойдёт</p>
+        <div class="tag-row">
+          <span class="tag-pill">Visual Storytelling</span>
+          <span class="tag-pill">Video Editing</span>
+          <span class="tag-pill">Product Research</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -715,34 +1010,67 @@
   <img class="process-photo-band" src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=1600&auto=format&fit=crop" alt="Фото автора">
 </section>
 
+<!-- RATE CARD -->
+<section id="rate" class="rate-section">
+  <div class="wrap">
+    <span class="eyebrow">[ прайс ]</span>
+    <h2 class="section-title">Rate Card</h2>
+    <div class="rate-grid">
+      <div>
+        <p class="rate-intro">Я создаю индивидуальные предложения под каждый бренд, чтобы учитывать цели кампании, тип продукта и платформу размещения. Стоимость всегда обсуждается под конкретную задачу</p>
+        <p class="rate-note">UGC & Branded Content — от индивидуального запроса</p>
+      </div>
+      <ul class="rate-list">
+        <li>Формат контента <span>— UGC / Reels / фото / обзоры</span></li>
+        <li>Сложность съёмки и концепции <span>— идея, сценарий, локация</span></li>
+        <li>Права на использование контента <span>— органика, платное продвижение, whitelisting</span></li>
+        <li>Количество материалов <span>— единичное видео или пакет</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer id="contact">
-  <div class="wrap footer-inner">
-    <div class="footer-name">ИМЯ ФАМИЛИЯ</div>
-    <div class="footer-col">
-      <h4>НАВИГАЦИЯ</h4>
-      <a href="#about">обо мне</a>
-      <a href="#formats">форматы</a>
-      <a href="#portfolio">портфолио</a>
-      <a href="#strengths">сильные стороны</a>
-      <a href="#process">процесс</a>
+  <div class="wrap">
+    <div class="footer-meta">
+      <span>Имя Фамилия</span>
+      <span>Portfolio</span>
+      <span>2026</span>
     </div>
-    <div class="footer-col">
-      <h4>КОНТАКТЫ</h4>
-      <p>свяжитесь со мной, и мы обсудим детали</p>
-      <div class="social-row">
-        <a class="social-icon" href="#" aria-label="Instagram">
-          <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.3.15 4.8 1.7 5 5C22 8.5 22 8.9 22 12.1s0 3.6-.1 4.9c-.15 3.3-1.7 4.85-5 5-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-3.3-.15-4.85-1.7-5-5C2 15.7 2 15.3 2 12.1s0-3.6.1-4.9c.15-3.3 1.7-4.85 5-5C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.52 0-4.76.07-2.4.1-3.5 1.24-3.6 3.6C3.58 8.68 3.58 9.05 3.58 12s0 3.32.06 4.33c.1 2.36 1.2 3.5 3.6 3.6 1.24.06 1.6.07 4.76.07s3.52 0 4.76-.07c2.4-.1 3.5-1.24 3.6-3.6.06-1.01.06-1.38.06-4.33s0-3.32-.06-4.33c-.1-2.36-1.2-3.5-3.6-3.6C15.52 4 15.15 4 12 4zm0 3.4a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2zm0 1.8a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6zm4.8-2.15a1.08 1.08 0 1 1 0 2.15 1.08 1.08 0 0 1 0-2.15z"/></svg>
-        </a>
-        <a class="social-icon" href="#" aria-label="Telegram">
-          <svg viewBox="0 0 24 24"><path d="M21.5 4.5 2.8 11.7c-1 .4-1 1.7.1 2l4.6 1.5 1.8 5.6c.2.7 1.1.9 1.6.4l2.6-2.5 4.7 3.5c.7.5 1.7.1 1.9-.7l3.1-14.9c.2-1-.7-1.9-1.7-1.6zM8.6 14.6l9.2-6.5c.3-.2.6.2.3.4l-7.6 7-1.2 3-.7-3.9z"/></svg>
-        </a>
+    <div class="footer-inner">
+      <div class="footer-name">Давайте<br>работать<br>вместе</div>
+      <div class="footer-col">
+        <h4>НАВИГАЦИЯ</h4>
+        <a href="#about">обо мне</a>
+        <a href="#formats">форматы</a>
+        <a href="#portfolio">портфолио</a>
+        <a href="#strengths">сильные стороны</a>
+        <a href="#process">процесс</a>
+        <a href="#rate">прайс</a>
       </div>
-    </div>
-    <div>
-      <a class="footer-credit" href="#">Разработка сайта</a>
-      <!-- при необходимости добавьте сюда юридическую пометку (например, о запрещённых в РФ соцсетях) -->
-      <p class="footer-disclaimer" style="margin-top:40px;"></p>
+      <div class="footer-col">
+        <h4>КОНТАКТЫ</h4>
+        <div class="contact-list">
+          <div class="contact-row"><span>Телефон</span><a href="tel:+70000000000">+7 (000) 000-00-00</a></div>
+          <div class="contact-row"><span>Instagram</span><span>@username</span></div>
+          <div class="contact-row"><span>Telegram канал</span><span>username</span></div>
+          <div class="contact-row"><span>Telegram</span><span>@username</span></div>
+          <div class="contact-row"><span>TikTok</span><span>@username</span></div>
+          <div class="contact-row"><span>Threads</span><span>@username</span></div>
+        </div>
+        <div class="social-row">
+          <a class="social-icon" href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.3.15 4.8 1.7 5 5C22 8.5 22 8.9 22 12.1s0 3.6-.1 4.9c-.15 3.3-1.7 4.85-5 5-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-3.3-.15-4.85-1.7-5-5C2 15.7 2 15.3 2 12.1s0-3.6.1-4.9c.15-3.3 1.7-4.85 5-5C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.52 0-4.76.07-2.4.1-3.5 1.24-3.6 3.6C3.58 8.68 3.58 9.05 3.58 12s0 3.32.06 4.33c.1 2.36 1.2 3.5 3.6 3.6 1.24.06 1.6.07 4.76.07s3.52 0 4.76-.07c2.4-.1 3.5-1.24 3.6-3.6.06-1.01.06-1.38.06-4.33s0-3.32-.06-4.33c-.1-2.36-1.2-3.5-3.6-3.6C15.52 4 15.15 4 12 4zm0 3.4a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2zm0 1.8a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6zm4.8-2.15a1.08 1.08 0 1 1 0 2.15 1.08 1.08 0 0 1 0-2.15z"/></svg>
+          </a>
+          <a class="social-icon" href="#" aria-label="Telegram">
+            <svg viewBox="0 0 24 24"><path d="M21.5 4.5 2.8 11.7c-1 .4-1 1.7.1 2l4.6 1.5 1.8 5.6c.2.7 1.1.9 1.6.4l2.6-2.5 4.7 3.5c.7.5 1.7.1 1.9-.7l3.1-14.9c.2-1-.7-1.9-1.7-1.6zM8.6 14.6l9.2-6.5c.3-.2.6.2.3.4l-7.6 7-1.2 3-.7-3.9z"/></svg>
+          </a>
+        </div>
+        <a class="footer-credit" href="#" style="margin-top:24px;">Разработка сайта</a>
+        <!-- при необходимости добавьте сюда юридическую пометку (например, о запрещённых в РФ соцсетях) -->
+        <p class="footer-disclaimer"></p>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">Made on Tilda</div>
