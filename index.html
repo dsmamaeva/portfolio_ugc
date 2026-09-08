@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Имя Фамилия — UGC & Video Creator</title>
+<title>Дарья Мамаева | Портфолио</title>
 <style>
   :root{
     --cream:#EEEAE0;
@@ -117,13 +117,24 @@
     background:#1b1a16; /* fallback while video loads */
   }
 
-  .hero-video{
+  .hero-video-wrap{
     position:absolute;
     inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
     z-index:0;
+    overflow:hidden;
+  }
+
+  .hero-video{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:177.77vh;
+    height:56.25vw;
+    min-height:100%;
+    min-width:100%;
+    transform:translate(-50%,-50%);
+    border:none;
+    pointer-events:none;
   }
 
   .hero::after{
@@ -738,7 +749,7 @@
 <header>
   <div class="nav-inner">
     <div>
-      <div class="logo-name">Имя Фамилия</div>
+      <div class="logo-name">Дарья Мамаева</div>
       <div class="logo-sub">ugc - creator</div>
     </div>
     <nav>
@@ -749,7 +760,6 @@
         <li><a href="#portfolio">портфолио</a></li>
         <li><a href="#strengths">сильные стороны</a></li>
         <li><a href="#process">процесс</a></li>
-        <li><a href="#rate">прайс</a></li>
       </ul>
     </nav>
     <a href="#contact" class="btn">Обсудить проект</a>
@@ -758,27 +768,23 @@
 
 <!-- HERO -->
 <section class="hero" style="padding:0;">
-  <!--
-    Замените src на видео из вашего портфолио (mp4, до ~10 сек, без звука).
-    Атрибут poster показывает превью, пока видео грузится.
-  -->
-  <video
-    class="hero-video"
-    autoplay
-    muted
-    loop
-    playsinline
-    poster="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1600&auto=format&fit=crop">
-    <source src="your-showreel.mp4" type="video/mp4">
-  </video>
+  <div class="hero-video-wrap">
+    <iframe
+      class="hero-video"
+      src="https://www.youtube.com/embed/-JSXvp_x33A?autoplay=1&mute=1&loop=1&playlist=-JSXvp_x33A&controls=0&modestbranding=1&showinfo=0&rel=0&playsinline=1"
+      title="Дарья Мамаева — showreel"
+      allow="autoplay; encrypted-media"
+      frameborder="0">
+    </iframe>
+  </div>
 
   <div class="hero-inner">
     <div>
-      <div class="hero-tag">ugc&video creator</div>
-      <div class="hero-title">ИМЯ ФАМИЛИЯ</div>
+      <div class="hero-tag">блогер / креатор</div>
+      <div class="hero-title">ДАРЬЯ МАМАЕВА</div>
     </div>
     <div class="hero-side">
-      <div class="hero-niche">Ваша ниша · Например: Beauty · Lifestyle</div>
+      <div class="hero-niche">Beauty · Fashion</div>
       <a href="#portfolio" class="btn-outline">Посмотреть портфолио</a>
     </div>
   </div>
@@ -790,14 +796,14 @@
     <span class="eyebrow">[ обо мне ]</span>
     <div class="about-grid">
       <div class="about-intro">
-        Я - Имя Фамилия, UGC и video creator. Создаю эстетичный и живой контент, который выглядит как искренняя рекомендация, а не реклама
+        Я - Дарья Мамаева, блогер и UGC-креатор. Мне 23 года, живу в Петербурге и создаю эстетичный, живой контент, который выглядит как искренняя рекомендация, а не реклама
         <div class="diamond"></div>
       </div>
       <div class="about-detail">
-        <p><strong>Более N лет</strong> работаю с видеоконтентом и продвижением продуктов. <strong>Благодаря опыту</strong> в продажах понимаю, как показать преимущества товара так, чтобы зритель захотел его купить</p>
-        <p>Для меня важно не просто снять красивое видео, а передать ценность продукта и вызвать доверие у аудитории. Мне интересно работать с разными нишами: beauty, fashion, рестораны и кафе, доставки, техника, сервисы, путешествия, товары для дома</p>
+        <p><strong>Более 6 лет</strong> работаю с производством видеоконтента. Активно развиваю личный блог в формате диджитал-дневника, поэтому хорошо чувствую, какой контент удерживает внимание и вызывает доверие</p>
+        <p>Мне интересно работать с разными нишами: заведения — развлекательные и wellness, бренды одежды и косметики</p>
       </div>
-      <img class="about-photo" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=900&auto=format&fit=crop" alt="Фото автора">
+      <img class="about-photo" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=900&auto=format&fit=crop" alt="Дарья Мамаева">
     </div>
   </div>
 </section>
@@ -809,16 +815,16 @@
     <h2 class="section-title">Доверие, которое считывается с первого кадра</h2>
     <div class="stats-grid">
       <div class="stat-item">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Индивидуальный подход к каждому проекту</div>
+        <div class="stat-num">🔥</div>
+        <div class="stat-label">Знаю, как сделать виральный контент</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">+5</div>
-        <div class="stat-label">Форматов контента: UGC, Reels, обзоры, примерки, voice-over</div>
+        <div class="stat-num">✨</div>
+        <div class="stat-label">Нативная подача</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">∞</div>
-        <div class="stat-label">Идей для новых креативов под ваш бренд</div>
+        <div class="stat-num">📈</div>
+        <div class="stat-label">Высокий уровень вовлечённости зрителей</div>
       </div>
     </div>
   </div>
@@ -833,14 +839,12 @@
     <div class="formats-head">
       <div class="formats-note">
         <span class="tag-pill">как я работаю</span>
-        <p>Каждый проект начинается с изучения бренда, продукта и целевой аудитории. Затем я подбираю концепцию, пишу сценарий, снимаю, монтирую и адаптирую контент под площадку. В результате бренд получает современные UGC-видео, которые выглядят нативно и вызывают доверие</p>
+        <p>Помогаю бренду пройти путь от идеи до готового ролика: изучаю продукт, пишу сценарий, снимаю и монтирую материал, адаптирую под нужную площадку — так, чтобы контент выглядел нативно и вызывал доверие</p>
       </div>
       <div class="tag-row">
-        <span class="tag-pill">Creative Scriptwriting</span>
-        <span class="tag-pill">Visual Storytelling</span>
-        <span class="tag-pill">Cross-Platform Adaptation</span>
-        <span class="tag-pill">Native Advertising</span>
-        <span class="tag-pill">Product Research</span>
+        <span class="tag-pill">Сценарии</span>
+        <span class="tag-pill">Съёмка</span>
+        <span class="tag-pill">Монтаж</span>
       </div>
     </div>
 
@@ -855,22 +859,22 @@
           <div class="format-desc">Съёмка под актуальные тренды и переходы, чтобы удержать внимание в первые секунды</div>
         </div>
         <div class="format-row">
-          <div class="format-title"><span class="num">(03)</span> Процесс-туториалы</div>
-          <div class="format-desc">Пошаговая демонстрация использования продукта — понятно и по делу</div>
+          <div class="format-title"><span class="num">(03)</span> Lifestyle</div>
+          <div class="format-desc">Атмосферное видео, встраивающее продукт в повседневную жизнь</div>
         </div>
       </div>
       <div>
         <div class="format-row">
-          <div class="format-title"><span class="num">(04)</span> Lifestyle</div>
-          <div class="format-desc">Атмосферное видео, встраивающее продукт в повседневную жизнь</div>
-        </div>
-        <div class="format-row">
-          <div class="format-title"><span class="num">(05)</span> Unboxing</div>
+          <div class="format-title"><span class="num">(04)</span> Unboxing</div>
           <div class="format-desc">Живая распаковка с акцентом на эмоции и первое впечатление</div>
         </div>
         <div class="format-row">
-          <div class="format-title"><span class="num">(06)</span> Product Demo</div>
-          <div class="format-desc">Наглядная демонстрация преимуществ и текстуры продукта крупным планом</div>
+          <div class="format-title"><span class="num">(05)</span> Веб-продукты</div>
+          <div class="format-desc">Съёмка контента для сайтов и веб-сервисов — понятно и в фирменном стиле бренда</div>
+        </div>
+        <div class="format-row">
+          <div class="format-title"><span class="num">(06)</span> Процесс-туториалы</div>
+          <div class="format-desc">Пошаговая демонстрация использования продукта — понятно и по делу</div>
         </div>
       </div>
     </div>
@@ -884,49 +888,30 @@
     <h2 class="section-title">Категории, в которых я создаю контент</h2>
   </div>
   <div class="portfolio-grid">
-    <div class="portfolio-card" style="background-image:url('https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=900&auto=format&fit=crop');">
-      <span class="portfolio-tag">Косметика</span>
+    <a class="portfolio-card" target="_blank" rel="noopener" style="display:block;background-image:url('https://img.youtube.com/vi/r4buhOoaDHk/hqdefault.jpg');" href="https://youtube.com/shorts/r4buhOoaDHk">
+      <span class="portfolio-tag">Обзоры заведений</span>
       <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-    </div>
-    <div class="portfolio-card" style="background-image:url('https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=900&auto=format&fit=crop');">
-      <span class="portfolio-tag">Уход за кожей</span>
+    </a>
+    <a class="portfolio-card" target="_blank" rel="noopener" style="display:block;background-image:url('https://img.youtube.com/vi/GjuU49IZcic/hqdefault.jpg');" href="https://youtube.com/shorts/GjuU49IZcic">
+      <span class="portfolio-tag">Обзоры заведений</span>
       <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-    </div>
-    <div class="portfolio-card" style="background-image:url('https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=900&auto=format&fit=crop');">
-      <span class="portfolio-tag">Beauty</span>
+    </a>
+    <a class="portfolio-card" target="_blank" rel="noopener" style="display:block;background-image:url('https://img.youtube.com/vi/99IkwqLDTd8/hqdefault.jpg');" href="https://youtube.com/shorts/99IkwqLDTd8">
+      <span class="portfolio-tag">Веб-продукты</span>
       <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-    </div>
-  </div>
-
-  <!-- CASE STUDIES -->
-  <div class="wrap cases">
-    <div class="case-row">
-      <img class="case-media" src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=900&auto=format&fit=crop" alt="Кейс 01">
-      <div class="case-copy">
-        <div class="case-num">Кейс 01</div>
-        <div class="case-title">Название бренда · Beauty</div>
-        <p class="case-desc">Динамичное UGC-видео с трендовым переходом, которое привлекает внимание в первые секунды. Акцент сделан на посадке продукта, визуальном преображении и эмоциональной подаче, чтобы контент выглядел естественно и органично вписывался в ленту</p>
-        <div class="tag-row">
-          <span class="tag-pill">Creative Concept</span>
-          <span class="tag-pill">Trend Research</span>
-          <span class="tag-pill">Filming</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="case-row reverse">
-      <img class="case-media" src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=900&auto=format&fit=crop" alt="Кейс 02">
-      <div class="case-copy">
-        <div class="case-num">Кейс 02</div>
-        <div class="case-title">Название бренда · Косметика</div>
-        <p class="case-desc">UGC-видео с акцентом на текстуру продукта, процесс использования и ключевые преимущества. Главной задачей было показать продукт максимально естественно, вызвать доверие и помочь зрителю быстро понять, кому он подойдёт</p>
-        <div class="tag-row">
-          <span class="tag-pill">Visual Storytelling</span>
-          <span class="tag-pill">Video Editing</span>
-          <span class="tag-pill">Product Research</span>
-        </div>
-      </div>
-    </div>
+    </a>
+    <a class="portfolio-card" target="_blank" rel="noopener" style="display:block;background-image:url('https://img.youtube.com/vi/aczd6IvUlew/hqdefault.jpg');" href="https://youtube.com/shorts/aczd6IvUlew">
+      <span class="portfolio-tag">Веб-продукты</span>
+      <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+    </a>
+    <a class="portfolio-card" target="_blank" rel="noopener" style="display:block;background-image:url('https://img.youtube.com/vi/VUu8xQmd-Og/hqdefault.jpg');" href="https://youtube.com/shorts/VUu8xQmd-Og">
+      <span class="portfolio-tag">Fashion</span>
+      <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+    </a>
+    <a class="portfolio-card" target="_blank" rel="noopener" style="display:block;background-image:url('https://img.youtube.com/vi/-9zDJh0Yjf0/hqdefault.jpg');" href="https://youtube.com/shorts/-9zDJh0Yjf0">
+      <span class="portfolio-tag">Fashion</span>
+      <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+    </a>
   </div>
 </section>
 
@@ -939,11 +924,11 @@
     <div class="strengths-top">
       <div class="strength-card">Самостоятельно пишу сценарии и продумываю концепции<div class="diamond"></div></div>
       <div class="strength-card">Понимаю задачи бизнеса и маркетинга<div class="diamond"></div></div>
-      <img class="strength-photo" src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=800&auto=format&fit=crop" alt="Фото автора">
+      <img class="strength-photo" src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=800&auto=format&fit=crop" alt="Дарья Мамаева">
     </div>
 
     <div class="strengths-grid" style="margin-bottom:24px;">
-      <img class="strength-photo" src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=800&auto=format&fit=crop" alt="Фото автора">
+      <img class="strength-photo" src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=800&auto=format&fit=crop" alt="Дарья Мамаева">
       <div class="strength-card">Умею работать по ТЗ и соблюдать дедлайны<div class="diamond"></div></div>
       <div class="strength-card">Создаю живой контент без ощущения рекламы<div class="diamond"></div></div>
     </div>
@@ -970,71 +955,39 @@
     </div>
 
     <div class="process-row">
-      <div class="step-title"><span class="num">(01)</span> Знакомство и обсуждение цели проекта</div>
-      <div class="step-desc">Узнаю ваш бренд, продукт и задачу, кого вы хотите зацепить</div>
-    </div>
-    <div class="process-row">
-      <div class="step-title"><span class="num">(02)</span> Изучаю продукт и целевую аудиторию</div>
+      <div class="step-title"><span class="num">(01)</span> Изучаю продукт и целевую аудиторию</div>
       <div class="step-desc">Пробую и тестирую продукт, смотрю на него глазами вашего клиента, чтобы контент был честным и живым</div>
     </div>
     <div class="process-row">
-      <div class="step-title"><span class="num">(03)</span> Подготавливаю идею и сценарий</div>
-      <div class="step-desc">Придумываю концепцию, которая попадает в визуал и ценности бренда, пишу сценарий</div>
-    </div>
-    <div class="process-row">
-      <div class="step-title"><span class="num">(04)</span> Согласовываю детали</div>
-      <div class="step-desc">Показываю идею, обсуждаем детали. Утверждаем направление, и я готовлюсь к съёмке</div>
-    </div>
-    <div class="process-row">
-      <div class="step-title"><span class="num">(05)</span> Провожу съемку</div>
-      <div class="step-desc">Провожу съемку с естественным светом, эмоциями и вниманием к деталям</div>
+      <div class="step-title"><span class="num">(02)</span> Согласовываем формат ролика</div>
+      <div class="step-desc">Обсуждаем формат съёмки, при необходимости собираю референсы</div>
     </div>
 
     <div class="process-photo-wrap">
-      <img class="process-photo" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=600&auto=format&fit=crop" alt="Фото автора">
+      <img class="process-photo" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=600&auto=format&fit=crop" alt="Дарья Мамаева">
     </div>
 
     <div class="process-row">
-      <div class="step-title"><span class="num">(06)</span> Выполняю монтаж и цветокоррекцию</div>
-      <div class="step-desc">Собираю видео, выстраиваю ритм, делаю цвет так, чтобы кадры попадали в стиль бренда</div>
+      <div class="step-title"><span class="num">(03)</span> Снимаю материал</div>
+      <div class="step-desc">Монтирую материал в срок до недели</div>
     </div>
     <div class="process-row">
-      <div class="step-title"><span class="num">(07)</span> Вношу правки при необходимости</div>
-      <div class="step-desc">Если что-то хочется поправить, я на связи. Быстро и без лишних вопросов</div>
+      <div class="step-title"><span class="num">(04)</span> Вношу правки</div>
+      <div class="step-desc">При необходимости вношу правки — быстро и без лишних вопросов</div>
     </div>
     <div class="process-row">
-      <div class="step-title"><span class="num">(08)</span> Передаю готовые материалы в срок</div>
-      <div class="step-desc">Вы получаете готовый контент в срок. Качественно, аккуратно, без задержек</div>
+      <div class="step-title"><span class="num">(05)</span> Тестирую и публикую</div>
+      <div class="step-desc">Выкладываю ролик через пробный режим в нескольких вариантах — с разными хуками и оверлеями. Наиболее виральный выкладываю в основную сетку профиля</div>
     </div>
   </div>
-  <img class="process-photo-band" src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=1600&auto=format&fit=crop" alt="Фото автора">
-</section>
-
-<!-- RATE CARD -->
-<section id="rate" class="rate-section">
-  <div class="wrap">
-    <span class="eyebrow">[ прайс ]</span>
-    <h2 class="section-title">Rate Card</h2>
-    <div class="rate-grid">
-      <div>
-        <p class="rate-intro">Я создаю индивидуальные предложения под каждый бренд, чтобы учитывать цели кампании, тип продукта и платформу размещения. Стоимость всегда обсуждается под конкретную задачу</p>
-        <p class="rate-note">UGC & Branded Content — от индивидуального запроса</p>
-      </div>
-      <ul class="rate-list">
-        <li>Формат контента <span>— UGC / Reels / фото / обзоры</span></li>
-        <li>Сложность съёмки и концепции <span>— идея, сценарий, локация</span></li>
-        <li>Права на использование контента <span>— органика, платное продвижение, whitelisting</span></li>
-        <li>Количество материалов <span>— единичное видео или пакет</span></li>
-      </ul>
-    </div>
-  </div>
+  <img class="process-photo-band" src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=1600&auto=format&fit=crop" alt="Дарья Мамаева">
 </section>
 
 <!-- FOOTER -->
 <footer id="contact">
   <div class="wrap">
     <div class="footer-meta">
-      <span>Имя Фамилия</span>
+      <span>Дарья Мамаева</span>
       <span>Portfolio</span>
       <span>2026</span>
     </div>
@@ -1047,33 +1000,26 @@
         <a href="#portfolio">портфолио</a>
         <a href="#strengths">сильные стороны</a>
         <a href="#process">процесс</a>
-        <a href="#rate">прайс</a>
       </div>
       <div class="footer-col">
         <h4>КОНТАКТЫ</h4>
         <div class="contact-list">
-          <div class="contact-row"><span>Телефон</span><a href="tel:+70000000000">+7 (000) 000-00-00</a></div>
-          <div class="contact-row"><span>Instagram</span><span>@username</span></div>
-          <div class="contact-row"><span>Telegram канал</span><span>username</span></div>
-          <div class="contact-row"><span>Telegram</span><span>@username</span></div>
-          <div class="contact-row"><span>TikTok</span><span>@username</span></div>
-          <div class="contact-row"><span>Threads</span><span>@username</span></div>
+          <div class="contact-row"><span>Instagram</span><a href="https://instagram.com/dasha_mamaeva_" target="_blank" rel="noopener">@dasha_mamaeva_</a></div>
+          <div class="contact-row"><span>Telegram канал</span><a href="https://t.me/dsmamaeva" target="_blank" rel="noopener">dsmamaeva</a></div>
+          <div class="contact-row"><span>Telegram</span><a href="https://t.me/d_s_m" target="_blank" rel="noopener">@d_s_m</a></div>
         </div>
         <div class="social-row">
-          <a class="social-icon" href="#" aria-label="Instagram">
+          <a class="social-icon" href="https://instagram.com/dasha_mamaeva_" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.3.15 4.8 1.7 5 5C22 8.5 22 8.9 22 12.1s0 3.6-.1 4.9c-.15 3.3-1.7 4.85-5 5-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-3.3-.15-4.85-1.7-5-5C2 15.7 2 15.3 2 12.1s0-3.6.1-4.9c.15-3.3 1.7-4.85 5-5C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.52 0-4.76.07-2.4.1-3.5 1.24-3.6 3.6C3.58 8.68 3.58 9.05 3.58 12s0 3.32.06 4.33c.1 2.36 1.2 3.5 3.6 3.6 1.24.06 1.6.07 4.76.07s3.52 0 4.76-.07c2.4-.1 3.5-1.24 3.6-3.6.06-1.01.06-1.38.06-4.33s0-3.32-.06-4.33c-.1-2.36-1.2-3.5-3.6-3.6C15.52 4 15.15 4 12 4zm0 3.4a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2zm0 1.8a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6zm4.8-2.15a1.08 1.08 0 1 1 0 2.15 1.08 1.08 0 0 1 0-2.15z"/></svg>
           </a>
-          <a class="social-icon" href="#" aria-label="Telegram">
+          <a class="social-icon" href="https://t.me/dsmamaeva" target="_blank" rel="noopener" aria-label="Telegram">
             <svg viewBox="0 0 24 24"><path d="M21.5 4.5 2.8 11.7c-1 .4-1 1.7.1 2l4.6 1.5 1.8 5.6c.2.7 1.1.9 1.6.4l2.6-2.5 4.7 3.5c.7.5 1.7.1 1.9-.7l3.1-14.9c.2-1-.7-1.9-1.7-1.6zM8.6 14.6l9.2-6.5c.3-.2.6.2.3.4l-7.6 7-1.2 3-.7-3.9z"/></svg>
           </a>
         </div>
-        <a class="footer-credit" href="#" style="margin-top:24px;">Разработка сайта</a>
-        <!-- при необходимости добавьте сюда юридическую пометку (например, о запрещённых в РФ соцсетях) -->
-        <p class="footer-disclaimer"></p>
       </div>
     </div>
   </div>
-  <div class="footer-bottom">Made on Tilda</div>
+  <div class="footer-bottom">© 2026 Дарья Мамаева</div>
 </footer>
 
 </body>
