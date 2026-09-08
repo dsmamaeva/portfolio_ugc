@@ -1,763 +1,383 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Дарья Мамаева | Портфолио</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="referrer" content="no-referrer" />
+<title>Дарья Мамаева — креатор, блогер</title>
+<meta name="description" content="Дарья Мамаева — блогер и UGC-креатор. Beauty · Fashion." />
+<meta property="og:title" content="Дарья Мамаева — креатор, блогер" />
+<meta property="og:description" content="Дарья Мамаева — блогер и UGC-креатор. Beauty · Fashion." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
 <style>
-  :root{
-    --cream:#EEEAE0;
-    --cream-2:#E7E2D6;
-    --olive:#6E7A5C;
-    --olive-dark:#4B5440;
-    --text:#3E3A32;
-    --text-soft:#6B6759;
-    --line: rgba(62,58,50,0.15);
-    --line-dark: rgba(238,234,224,0.18);
-  }
-
-  *{box-sizing:border-box;margin:0;padding:0;}
-
-  html{scroll-behavior:smooth;}
-
-  body{
-    font-family: "Poppins","Segoe UI",sans-serif;
-    background:var(--cream);
-    color:var(--text);
-    line-height:1.5;
-  }
-
-  img{max-width:100%;display:block;}
-
-  a{color:inherit;text-decoration:none;}
-
-  .wrap{
-    max-width:1360px;
-    margin:0 auto;
-    padding:0 60px;
-  }
-
-  /* ---------- HEADER ---------- */
-
-  header{
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:var(--cream);
-    border-bottom:1px solid var(--line);
-  }
-
-  .nav-inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:22px 60px;
-    max-width:1360px;
-    margin:0 auto;
-    gap:20px;
-  }
-
-  .logo-name{
-    font-size:22px;
-    font-weight:700;
-    color:var(--olive-dark);
-    line-height:1.2;
-  }
-  .logo-sub{
-    font-size:13px;
-    color:var(--text-soft);
-    font-weight:400;
-  }
-
-  nav ul{
-    display:flex;
-    gap:32px;
-    list-style:none;
-    flex-wrap:wrap;
-  }
-
-  nav a{
-    font-size:15px;
-    color:var(--text);
-    padding:6px 0;
-    border-bottom:2px solid transparent;
-    transition:color .2s ease, border-color .2s ease;
-    white-space:nowrap;
-  }
-
-  nav a.active,
-  nav a:hover{
-    color:var(--text-soft);
-  }
-
-  .btn{
-    display:inline-block;
-    background:var(--olive);
-    color:#fff;
-    font-size:15px;
-    padding:14px 26px;
-    border-radius:6px;
-    border:none;
-    cursor:pointer;
-    transition:background .2s ease, transform .2s ease;
-    white-space:nowrap;
-  }
-  .btn:hover{
-    background:var(--olive-dark);
-  }
-
-  /* ---------- HERO ---------- */
-
-  .hero{
-    position:relative;
-    min-height:78vh;
-    display:flex;
-    align-items:flex-end;
-    overflow:hidden;
-    background:#1b1a16; /* fallback while video loads */
-  }
-
-  .hero-video-wrap{
-    position:absolute;
-    inset:0;
-    z-index:0;
-    overflow:hidden;
-  }
-
-  .hero-video{
-    position:absolute;
-    top:50%;
-    left:50%;
-    width:177.77vh;
-    height:56.25vw;
-    min-height:100%;
-    min-width:100%;
-    transform:translate(-50%,-50%);
-    border:none;
-    pointer-events:none;
-  }
-
-  .hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    z-index:1;
-    background:linear-gradient(180deg, rgba(20,20,15,0) 45%, rgba(20,20,15,.55) 100%);
-  }
-
-  .hero-inner{
-    position:relative;
-    z-index:2;
-    width:100%;
-    padding:60px;
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-    gap:30px;
-    flex-wrap:wrap;
-  }
-
-  .hero-tag{
-    color:#F3F0E7;
-    font-size:20px;
-    margin-bottom:6px;
-    font-weight:500;
-  }
-
-  .hero-title{
-    color:#F3F0E7;
-    font-size:clamp(48px, 8vw, 110px);
-    font-weight:800;
-    letter-spacing:-1px;
-    line-height:1;
-  }
-
-  .hero-side{
-    text-align:right;
-    display:flex;
-    flex-direction:column;
-    align-items:flex-end;
-    gap:18px;
-  }
-
-  .hero-niche{
-    color:#F3F0E7;
-    font-size:16px;
-    opacity:.9;
-  }
-
-  .btn-outline{
-    display:inline-block;
-    background:rgba(110,122,92,.85);
-    color:#fff;
-    font-size:15px;
-    padding:14px 26px;
-    border-radius:6px;
-    border:1px solid rgba(255,255,255,.4);
-  }
-
-  /* ---------- SECTION shared ---------- */
-
-  section{
-    padding:110px 0;
-  }
-
-  .eyebrow{
-    display:inline-block;
-    font-size:15px;
-    color:var(--text-soft);
-    margin-bottom:26px;
-  }
-
-  h2.section-title{
-    font-size:clamp(34px, 4vw, 52px);
-    font-weight:700;
-    color:var(--olive-dark);
-    line-height:1.15;
-    max-width:900px;
-    margin-bottom:60px;
-  }
-
-  /* ---------- TAG PILLS (borrowed from reference portfolio) ---------- */
-
-  .tag-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-  }
-
-  .tag-pill{
-    display:inline-flex;
-    align-items:center;
-    padding:11px 22px;
-    border:1px solid var(--olive);
-    border-radius:999px;
-    font-size:14px;
-    color:var(--olive-dark);
-    background:transparent;
-  }
-
-  .tag-pill.on-dark{
-    border-color:rgba(238,234,224,.55);
-    color:var(--cream);
-  }
-
-  /* ---------- ABOUT ---------- */
-
-  .about-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:50px;
-    align-items:start;
-  }
-
-  .about-intro{
-    font-size:22px;
-    line-height:1.5;
-  }
-
-  .about-detail p{
-    font-size:18px;
-    color:var(--text);
-    margin-bottom:22px;
-    line-height:1.6;
-  }
-  .about-detail strong{
-    color:var(--olive-dark);
-  }
-
-  .about-photo{
-    width:100%;
-    aspect-ratio:3/4;
-    object-fit:cover;
-    border-radius:2px;
-  }
-
-  .diamond{
-    width:38px;
-    height:38px;
-    background:var(--olive);
-    border-radius:8px;
-    transform:rotate(45deg);
-    margin-top:40px;
-  }
-
-  /* ---------- WHY ME / STATS (new — from reference "WHY ME?" slide) ---------- */
-
-  .stats-section{
-    background:var(--olive-dark);
-    color:var(--cream);
-  }
-  .stats-section .eyebrow{ color:rgba(238,234,224,.7); }
-  .stats-section .section-title{ color:var(--cream); }
-
-  .stats-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:50px;
-  }
-
-  .stat-item{
-    border-top:1px solid var(--line-dark);
-    padding-top:28px;
-  }
-
-  .stat-num{
-    font-size:56px;
-    font-weight:800;
-    margin-bottom:16px;
-    line-height:1;
-  }
-
-  .stat-label{
-    font-size:17px;
-    color:rgba(238,234,224,.8);
-    line-height:1.5;
-    max-width:280px;
-  }
-
-  /* ---------- FORMATS / SKILLS ---------- */
-
-  .formats-head{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-    margin-bottom:60px;
-    align-items:start;
-  }
-
-  .formats-note{
-    font-size:17px;
-    color:var(--text-soft);
-    line-height:1.7;
-  }
-  .formats-note .tag-pill{ margin-bottom:18px; }
-
-  .formats-columns{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:0 90px;
-    max-width:1050px;
-    margin-left:auto;
-  }
-
-  .format-row{
-    padding:26px 0;
-    border-bottom:1px solid var(--line);
-  }
-  .format-row .format-title{
-    display:flex;
-    align-items:baseline;
-    gap:20px;
-    font-size:20px;
-    margin-bottom:8px;
-  }
-  .format-row .num{
-    color:var(--olive-dark);
-    font-weight:600;
-    min-width:56px;
-  }
-  .format-row .format-desc{
-    font-size:15px;
-    color:var(--text-soft);
-    padding-left:76px;
-    line-height:1.5;
-  }
-
-  /* ---------- PORTFOLIO ---------- */
-
-  .portfolio-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:4px;
-  }
-
-  .portfolio-card{
-    position:relative;
-    aspect-ratio:3/4;
-    overflow:hidden;
-    background-size:cover;
-    background-position:center;
-  }
-
-  .portfolio-card::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.28));
-  }
-
-  .portfolio-tag{
-    position:absolute;
-    top:20px;
-    left:20px;
-    background:rgba(238,234,224,.85);
-    color:var(--text);
-    font-size:14px;
-    padding:8px 14px;
-    border-radius:4px;
-    z-index:2;
-  }
-
-  .play-btn{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    width:64px;
-    height:64px;
-    border-radius:50%;
-    background:rgba(238,234,224,.9);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:2;
-  }
-  .play-btn svg{width:20px;height:20px;fill:var(--text);margin-left:3px;}
-
-  /* ---------- CASE STUDIES (new — from reference "PROJECT 01 / 02" slides) ---------- */
-
-  .cases{
-    padding-top:0;
-  }
-
-  .case-row{
-    display:grid;
-    grid-template-columns:0.9fr 1.1fr;
-    gap:70px;
-    align-items:center;
-    padding:70px 0;
-    border-bottom:1px solid var(--line);
-  }
-  .case-row:last-child{ border-bottom:none; }
-  .case-row.reverse .case-media{ order:2; }
-  .case-row.reverse .case-copy{ order:1; }
-
-  .case-media{
-    width:100%;
-    aspect-ratio:3/4;
-    object-fit:cover;
-    border-radius:2px;
-  }
-
-  .case-num{
-    font-size:15px;
-    color:var(--text-soft);
-    margin-bottom:14px;
-  }
-
-  .case-title{
-    font-size:30px;
-    font-weight:700;
-    color:var(--olive-dark);
-    margin-bottom:20px;
-  }
-
-  .case-desc{
-    font-size:17px;
-    color:var(--text);
-    line-height:1.7;
-    margin-bottom:28px;
-    max-width:520px;
-  }
-
-  /* ---------- STRENGTHS ---------- */
-
-  .strengths-top{
-    display:grid;
-    grid-template-columns:1.1fr 1fr 1fr;
-    gap:24px;
-    margin-bottom:24px;
-  }
-
-  .strength-card{
-    border:1px solid var(--line);
-    padding:36px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    min-height:230px;
-    font-size:19px;
-  }
-
-  .strength-photo{
-    width:100%;
-    height:230px;
-    object-fit:cover;
-    border-radius:2px;
-  }
-
-  .strength-cta{
-    background:var(--olive);
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:19px;
-    min-height:230px;
-    border-radius:0;
-  }
-
-  .strengths-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:24px;
-  }
-
-  /* ---------- PROCESS ---------- */
-
-  .process-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    gap:30px;
-    margin-bottom:50px;
-    flex-wrap:wrap;
-  }
-
-  .process-note{
-    max-width:340px;
-    font-size:18px;
-    color:var(--text-soft);
-    text-align:right;
-  }
-
-  .process-row{
-    display:grid;
-    grid-template-columns:520px 1fr;
-    gap:40px;
-    padding:30px 0;
-    border-bottom:1px solid var(--line);
-    align-items:center;
-  }
-
-  .process-row .num{
-    font-size:22px;
-    color:var(--olive-dark);
-    margin-right:22px;
-  }
-
-  .process-row .step-title{
-    font-size:24px;
-    font-weight:600;
-    display:flex;
-    align-items:baseline;
-  }
-
-  .process-row .step-desc{
-    font-size:17px;
-    color:var(--text-soft);
-    line-height:1.6;
-  }
-
-  .process-photo-wrap{
-    display:flex;
-    justify-content:center;
-    margin:50px 0;
-  }
-  .process-photo{
-    width:260px;
-    height:320px;
-    object-fit:cover;
-    border-radius:4px;
-    transform:rotate(-3deg);
-    box-shadow:0 20px 40px rgba(0,0,0,.15);
-  }
-
-  .process-photo-band{
-    width:100%;
-    height:520px;
-    object-fit:cover;
-    margin-top:60px;
-  }
-
-  /* ---------- RATE CARD (new — from reference "RATE CARD" slide) ---------- */
-
-  .rate-section{
-    background:var(--cream-2);
-  }
-
-  .rate-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-  }
-
-  .rate-intro{
-    font-size:19px;
-    color:var(--text);
-    line-height:1.7;
-    max-width:420px;
-  }
-
-  .rate-list{
-    list-style:none;
-  }
-  .rate-list li{
-    font-size:17px;
-    color:var(--text);
-    padding:16px 0;
-    border-bottom:1px solid var(--line);
-  }
-  .rate-list li span{
-    color:var(--text-soft);
-  }
-
-  .rate-note{
-    margin-top:30px;
-    font-size:15px;
-    color:var(--text-soft);
-  }
-
-  /* ---------- FOOTER ---------- */
-
-  footer{
-    background:#1b1a16;
-    color:var(--cream);
-    padding-top:70px;
-  }
-
-  .footer-meta{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding-bottom:40px;
-    border-bottom:1px solid var(--line-dark);
-    font-size:15px;
-    color:rgba(238,234,224,.7);
-  }
-
-  .footer-inner{
-    display:grid;
-    grid-template-columns:1.3fr 1fr 1.2fr;
-    gap:40px;
-    padding:60px 0;
-  }
-
-  .footer-name{
-    font-size:44px;
-    font-weight:800;
-    color:var(--cream);
-    align-self:flex-start;
-  }
-
-  .footer-col h4{
-    font-size:15px;
-    letter-spacing:.05em;
-    color:rgba(238,234,224,.6);
-    margin-bottom:18px;
-  }
-
-  .footer-col a, .footer-col p{
-    display:block;
-    font-size:17px;
-    margin-bottom:12px;
-    color:var(--cream);
-  }
-
-  .contact-list{
-    display:flex;
-    flex-direction:column;
-    gap:0;
-  }
-  .contact-row{
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-    font-size:16px;
-    padding:11px 0;
-    border-bottom:1px solid var(--line-dark);
-  }
-  .contact-row span:first-child{
-    color:rgba(238,234,224,.6);
-  }
-  .contact-row a, .contact-row span:last-child{
-    color:var(--cream);
-  }
-
-  .social-row{
-    display:flex;
-    gap:14px;
-    margin-top:18px;
-  }
-  .social-icon{
-    width:44px;
-    height:44px;
-    background:var(--olive);
-    border-radius:6px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .social-icon svg{width:20px;height:20px;fill:#fff;}
-
-  .footer-credit{
-    font-size:14px;
-    color:rgba(238,234,224,.5);
-    text-decoration:underline;
-  }
-
-  .footer-disclaimer{
-    font-size:13px;
-    color:rgba(238,234,224,.5);
-    max-width:260px;
-    margin-top:24px;
-  }
-
-  .footer-bottom{
-    background:#0f0f0c;
-    color:#c9c6bc;
-    text-align:center;
-    padding:22px 0;
-    font-size:14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-  }
-
-  /* ---------- RESPONSIVE ---------- */
-
-  @media (max-width: 900px){
-    .wrap{padding:0 24px;}
-    .nav-inner{padding:18px 24px;flex-wrap:wrap;gap:16px;}
-    nav ul{gap:20px;flex-wrap:wrap;}
-    section{padding:70px 0;}
-    .about-grid{grid-template-columns:1fr;}
-    .about-photo{aspect-ratio:16/10;}
-    .stats-grid{grid-template-columns:1fr;gap:30px;}
-    .formats-head{grid-template-columns:1fr;gap:30px;}
-    .formats-columns{grid-template-columns:1fr;}
-    .format-row .format-desc{padding-left:0;margin-top:6px;}
-    .portfolio-grid{grid-template-columns:1fr;}
-    .case-row, .case-row.reverse{grid-template-columns:1fr;gap:26px;}
-    .case-row.reverse .case-media{order:1;}
-    .case-row.reverse .case-copy{order:2;}
-    .strengths-top, .strengths-grid{grid-template-columns:1fr;}
-    .process-row{grid-template-columns:1fr;gap:14px;}
-    .process-photo-band{height:280px;}
-    .rate-grid{grid-template-columns:1fr;}
-    .footer-inner{grid-template-columns:1fr;}
-    .footer-meta{flex-direction:column;align-items:flex-start;gap:8px;}
-    .hero-inner{padding:30px 24px;flex-direction:column;align-items:flex-start;}
-    .hero-side{align-items:flex-start;text-align:left;}
-  }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --bg-main: #100E0D;
+  --bg-sec: #181513;
+  --accent: #8FB5CD;
+  --accent-warm: #C06B26;
+  --text: #EAE6DF;
+  --text-soft: #9A9289;
+  --line: rgba(234, 230, 223, 0.12);
+  --line-dark: rgba(234, 230, 223, 0.05);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family: "Poppins","Segoe UI",sans-serif;
+  background:var(--bg-main);
+  color:var(--text);
+  line-height:1.5;
+}
+
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1360px;margin:0 auto;padding:0 60px;}
+
+/* ---------- FADE UP ANIMATION ---------- */
+.fade-up{
+  opacity:0;
+  transform:translateY(50px);
+  transition:opacity .8s cubic-bezier(0.22,1,0.36,1), transform .8s cubic-bezier(0.22,1,0.36,1);
+}
+.fade-up.in-view{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ---------- HEADER ---------- */
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:var(--bg-main);
+  border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px 60px;max-width:1360px;margin:0 auto;gap:20px;
+}
+
+.logo-name{
+  font-size:22px;font-weight:700;color:var(--text);line-height:1.2;
+}
+.logo-sub{
+  font-size:13px;color:var(--accent);font-weight:400;
+}
+
+nav ul{display:flex;gap:32px;list-style:none;flex-wrap:wrap;}
+nav a{font-size:15px;color:var(--text);padding:6px 0;border-bottom:2px solid transparent;transition:color .2s ease, border-color .2s ease;white-space:nowrap;}
+nav a.active, nav a:hover{color:var(--accent);}
+
+.btn{
+  display:inline-block;background:var(--accent);color:#100E0D;
+  font-size:15px;padding:14px 26px;border-radius:6px;border:none;
+  cursor:pointer;transition:background .2s ease, transform .2s ease;white-space:nowrap;
+}
+.btn:hover{background:var(--accent-warm);color:#fff;}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;min-height:78vh;display:flex;align-items:flex-end;
+  overflow:hidden;background:var(--bg-main);padding:0;
+}
+.hero-video-wrap{position:absolute;inset:0;z-index:0;overflow:hidden;}
+.hero-video{
+  position:absolute;top:50%;left:50%;width:177.77vh;height:56.25vw;
+  min-height:100%;min-width:100%;transform:translate(-50%,-50%);
+  border:none;pointer-events:none;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg, rgba(16,14,13,0) 45%, rgba(16,14,13,.75) 100%);
+}
+.hero-inner{
+  position:relative;z-index:2;width:100%;padding:60px;display:flex;
+  align-items:flex-end;justify-content:space-between;gap:30px;flex-wrap:wrap;
+}
+.hero-tag{color:var(--text-soft);font-size:20px;margin-bottom:6px;font-weight:500;}
+.hero-title{color:var(--text);font-size:clamp(48px, 8vw, 110px);font-weight:800;letter-spacing:-1px;line-height:1;}
+.hero-side{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:18px;}
+.hero-niche{color:var(--accent);font-size:16px;opacity:.9;}
+.btn-outline{
+  display:inline-block;background:rgba(143,181,205,.1);color:var(--accent);
+  font-size:15px;padding:14px 26px;border-radius:6px;border:1px solid var(--accent);
+}
+
+/* ---------- SECTION shared ---------- */
+section{padding:110px 0;}
+.eyebrow{display:inline-block;font-size:15px;color:var(--text-soft);margin-bottom:26px;}
+h2.section-title{
+  font-size:clamp(34px, 4vw, 52px);font-weight:700;color:var(--text);
+  line-height:1.15;max-width:900px;margin-bottom:60px;
+}
+
+/* ---------- TAG PILLS ---------- */
+.tag-row{display:flex;flex-wrap:wrap;gap:12px;}
+.tag-pill{
+  display:inline-flex;align-items:center;padding:11px 22px;
+  border:1px solid var(--line);border-radius:999px;
+  font-size:14px;color:var(--text-soft);background:transparent;
+}
+
+/* ---------- ABOUT ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:50px;align-items:start;}
+.about-intro{font-size:22px;line-height:1.5;}
+.about-detail p{font-size:18px;color:var(--text);margin-bottom:22px;line-height:1.6;}
+.about-detail strong{color:var(--accent-warm);}
+.about-photo{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;}
+.diamond{width:38px;height:38px;background:var(--accent-warm);border-radius:8px;transform:rotate(45deg);margin-top:40px;}
+
+/* ---------- WHY ME / STATS ---------- */
+.stats-section{background:var(--bg-sec);color:var(--text);}
+.stats-section .eyebrow{ color:var(--text-soft); }
+.stats-section .section-title{ color:var(--text); }
+.stats-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:50px;}
+.stat-item{border-top:1px solid var(--line-dark);padding-top:28px;}
+.stat-num{font-size:56px;font-weight:800;margin-bottom:16px;line-height:1;color:var(--accent-warm);}
+.stat-label{font-size:17px;color:var(--text);line-height:1.5;max-width:280px;}
+
+/* ---------- FORMATS / SKILLS ---------- */
+.formats-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:60px;align-items:start;}
+.formats-note{font-size:17px;color:var(--text-soft);line-height:1.7;}
+.formats-note .tag-pill{ margin-bottom:18px; }
+.formats-columns{display:grid;grid-template-columns:1fr 1fr;gap:0 90px;max-width:1050px;margin-left:auto;}
+.format-row{padding:26px 0;border-bottom:1px solid var(--line);}
+.format-row .format-title{display:flex;align-items:baseline;gap:20px;font-size:20px;margin-bottom:8px;}
+.format-row .num{color:var(--accent);font-weight:600;min-width:56px;}
+.format-row .format-desc{font-size:15px;color:var(--text-soft);padding-left:76px;line-height:1.5;}
+
+/* ---------- PORTFOLIO ---------- */
+.portfolio-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:40px 30px;}
+
+.portfolio-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-item:nth-child(1),
+.portfolio-item:nth-child(2) { --folder-color: #C0A1A3; }
+
+.portfolio-item:nth-child(3),
+.portfolio-item:nth-child(4) { --folder-color: #8FB5CD; }
+
+.portfolio-item:nth-child(5),
+.portfolio-item:nth-child(6) { --folder-color: #C8B9A6; }
+
+.portfolio-tab {
+  align-self: flex-start;
+  position: relative;
+  background: var(--folder-color, #C8B9A6);
+  color: #100E0D;
+  padding: 8px 18px 10px 16px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  border-radius: 10px 0 0 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  border: none;
+  margin-bottom: -1px;
+  z-index: 2;
+}
+
+.portfolio-tab::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -16px;
+  bottom: 0;
+  width: 24px;
+  background: inherit;
+  transform-origin: bottom;
+  transform: skewX(22deg);
+  border-radius: 0 10px 0 0;
+  z-index: -1;
+}
+
+.portfolio-card{
+  position:relative;
+  aspect-ratio:9/16;
+  overflow:hidden;
+  background-size:cover;
+  background-position:center;
+  border: 6px solid var(--folder-color, #C8B9A6);
+  border-radius: 0 16px 16px 16px;
+  z-index: 1;
+  background-color: var(--folder-color, #C8B9A6);
+}
+.portfolio-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.28));pointer-events:none;}
+.portfolio-card.is-playing::after {display:none;}
+.play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(234,230,223,.9);display:flex;align-items:center;justify-content:center;z-index:2;box-shadow: 0 4px 14px rgba(0,0,0,0.15);}
+.play-btn svg{width:20px;height:20px;fill:#100E0D;margin-left:3px;}
+
+/* ---------- STATISTICS ---------- */
+.stats-image-grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:40px 20px;}
+
+.stats-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats-item:nth-child(4n+1) { --folder-color: #C0A1A3; }
+.stats-item:nth-child(4n+2) { --folder-color: #8FB5CD; }
+.stats-item:nth-child(4n+3) { --folder-color: #C8B9A6; }
+.stats-item:nth-child(4n+4) { --folder-color: #B4B0A6; }
+
+.stats-tab {
+  align-self: flex-start;
+  position: relative;
+  background: var(--folder-color, #C8B9A6);
+  color: #100E0D;
+  padding: 8px 12px 10px 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 10px;
+  line-height: 1.2;
+  border-radius: 8px 0 0 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  margin-bottom: -1px;
+  z-index: 2;
+  max-width: 90%;
+  white-space: normal;
+}
+
+.stats-tab::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -12px;
+  bottom: 0;
+  width: 20px;
+  background: inherit;
+  transform-origin: bottom;
+  transform: skewX(22deg);
+  border-radius: 0 8px 0 0;
+  z-index: -1;
+}
+
+.stats-card{
+  position:relative;
+  aspect-ratio:9/16;
+  overflow:hidden;
+  background-size:cover;
+  background-position:center;
+  border: 4px solid var(--folder-color, #C8B9A6);
+  border-radius: 0 12px 12px 12px;
+  z-index: 1;
+  background-color: var(--folder-color, #C8B9A6);
+}
+
+/* ---------- STRENGTHS ---------- */
+.strengths-top{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:24px;margin-bottom:24px;}
+.strength-card{border:1px solid var(--line);padding:36px;display:flex;flex-direction:column;justify-content:space-between;min-height:230px;font-size:19px;}
+.strength-photo{width:100%;height:230px;object-fit:cover;border-radius:2px;}
+.strength-cta{background:var(--accent);color:#100E0D;display:flex;align-items:center;justify-content:center;font-size:19px;min-height:230px;border-radius:0;transition:background .2s;}
+.strength-cta:hover{background:var(--accent-warm);color:#fff;}
+.strengths-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+
+/* ---------- PROCESS ---------- */
+.process-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:50px;flex-wrap:wrap;}
+.process-note{max-width:340px;font-size:18px;color:var(--text-soft);text-align:right;}
+.process-row{display:grid;grid-template-columns:520px 1fr;gap:40px;padding:30px 0;border-bottom:1px solid var(--line);align-items:center;}
+.process-row .num{font-size:22px;color:var(--accent);margin-right:22px;}
+.process-row .step-title{font-size:24px;font-weight:600;display:flex;align-items:baseline;}
+.process-row .step-desc{font-size:17px;color:var(--text-soft);line-height:1.6;}
+.process-photo-wrap{display:flex;justify-content:center;margin:50px 0;}
+.process-photo{width:260px;height:320px;object-fit:cover;border-radius:4px;transform:rotate(-3deg);box-shadow:0 20px 40px rgba(0,0,0,.35);}
+.process-photo-band{width:100%;height:520px;object-fit:cover;margin-top:60px;}
+
+/* ---------- FOOTER ---------- */
+footer{background:#0A0908;color:var(--text);padding-top:70px;}
+.footer-meta{display:flex;justify-content:space-between;align-items:center;padding-bottom:40px;border-bottom:1px solid var(--line-dark);font-size:15px;color:var(--text-soft);}
+.footer-inner{display:grid;grid-template-columns:1.3fr 1fr 1.2fr;gap:40px;padding:60px 0;}
+.footer-name{font-size:44px;font-weight:800;color:var(--text);align-self:flex-start;}
+.footer-col h4{font-size:15px;letter-spacing:.05em;color:var(--text-soft);margin-bottom:18px;}
+.footer-col a, .footer-col p{display:block;font-size:17px;margin-bottom:12px;color:var(--text);}
+.contact-list{display:flex;flex-direction:column;gap:0;}
+.contact-row{display:flex;justify-content:space-between;gap:20px;font-size:16px;padding:11px 0;border-bottom:1px solid var(--line-dark);}
+.contact-row span:first-child{color:var(--text-soft);}
+.contact-row a, .contact-row span:last-child{color:var(--text);}
+.social-row{display:flex;gap:14px;margin-top:18px;}
+.social-icon{width:44px;height:44px;background:var(--line);border-radius:6px;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.social-icon svg{width:44px;height:44px;fill:var(--text);transition:fill .2s;}
+.social-icon:hover{background:var(--accent);}
+.social-icon:hover svg{fill:#100E0D;}
+.footer-bottom{background:#000;color:var(--text-soft);text-align:center;padding:22px 0;font-size:14px;display:flex;align-items:center;justify-content:center;gap:10px;}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px){
+  .wrap{padding:0 24px;}
+  .nav-inner{padding:18px 24px;flex-wrap:wrap;gap:16px;}
+  nav ul{gap:20px;flex-wrap:wrap;}
+  section{padding:70px 0;}
+  .about-grid{grid-template-columns:1fr;}
+  .about-photo{aspect-ratio:16/10;}
+  .stats-grid{grid-template-columns:1fr;gap:30px;}
+  .stats-image-grid{grid-template-columns:repeat(2, 1fr);}
+  .formats-head{grid-template-columns:1fr;gap:30px;}
+  .formats-columns{grid-template-columns:1fr;}
+  .format-row .format-desc{padding-left:0;margin-top:6px;}
+  .portfolio-grid{grid-template-columns:1fr;}
+  .strengths-top, .strengths-grid{grid-template-columns:1fr;}
+  .process-row{grid-template-columns:1fr;gap:14px;}
+  .process-photo-band{height:280px;}
+  .footer-inner{grid-template-columns:1fr;}
+  .footer-meta{flex-direction:column;align-items:flex-start;gap:8px;}
+  .hero-inner{padding:30px 24px;flex-direction:column;align-items:flex-start;}
+  .hero-side{align-items:flex-start;text-align:left;}
+}
+
+@media (max-width: 500px){
+  .stats-image-grid{grid-template-columns:1fr;}
+}
+
+/* ---------- CUSTOM CURSOR ---------- */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 52px;
+  height: 52px;
+  margin-left: -26px;
+  margin-top: -26px;
+  border-radius: 50%;
+  background: rgba(192, 107, 38, 0.25);
+  pointer-events: none;
+  z-index: 10000;
+  backdrop-filter: blur(2px);
+  transition: transform 0.05s linear;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor {
+    display: none;
+  }
+}
 </style>
 </head>
 <body>
+
+<div class="custom-cursor" id="cursor"></div>
 
 <header>
   <div class="nav-inner">
     <div>
       <div class="logo-name">Дарья Мамаева</div>
-      <div class="logo-sub">ugc - creator</div>
+      <div class="logo-sub">креатор, блогер</div>
     </div>
     <nav>
       <ul>
         <li><a href="#about">обо мне</a></li>
-        <li><a href="#why-me">почему я</a></li>
         <li><a href="#formats">форматы</a></li>
         <li><a href="#portfolio">портфолио</a></li>
+        <li><a href="#statistics">статистика</a></li>
         <li><a href="#strengths">сильные стороны</a></li>
         <li><a href="#process">процесс</a></li>
       </ul>
@@ -767,7 +387,7 @@
 </header>
 
 <!-- HERO -->
-<section class="hero" style="padding:0;">
+<section class="hero">
   <div class="hero-video-wrap">
     <iframe
       class="hero-video"
@@ -779,11 +399,11 @@
   </div>
 
   <div class="hero-inner">
-    <div>
+    <div class="fade-up">
       <div class="hero-tag">блогер / креатор</div>
       <div class="hero-title">ДАРЬЯ МАМАЕВА</div>
     </div>
-    <div class="hero-side">
+    <div class="fade-up hero-side" style="transition-delay:.2s">
       <div class="hero-niche">Beauty · Fashion</div>
       <a href="#portfolio" class="btn-outline">Посмотреть портфолио</a>
     </div>
@@ -793,38 +413,22 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="wrap">
-    <span class="eyebrow">[ обо мне ]</span>
+    <span class="eyebrow fade-up">[ обо мне ]</span>
     <div class="about-grid">
-      <div class="about-intro">
-        Я - Дарья Мамаева, блогер и UGC-креатор. Мне 23 года, живу в Петербурге и создаю эстетичный, живой контент, который выглядит как искренняя рекомендация, а не реклама
-        <div class="diamond"></div>
+      <div class="fade-up" style="transition-delay:.1s">
+        <div class="about-intro">
+          Я - Дарья Мамаева, блогер и UGC-креатор. Мне 23 года, живу в Петербурге и создаю эстетичный, живой контент, который выглядит как искренняя рекомендация, а не реклама
+          <div class="diamond"></div>
+        </div>
       </div>
-      <div class="about-detail">
-        <p><strong>Более 6 лет</strong> работаю с производством видеоконтента. Активно развиваю личный блог в формате диджитал-дневника, поэтому хорошо чувствую, какой контент удерживает внимание и вызывает доверие</p>
-        <p>Мне интересно работать с разными нишами: заведения — развлекательные и wellness, бренды одежды и косметики</p>
+      <div class="fade-up" style="transition-delay:.2s">
+        <div class="about-detail">
+          <p><strong>Более 6 лет</strong> работаю с производством видеоконтента. Активно развиваю личный блог в формате диджитал-дневника, поэтому хорошо чувствую, какой контент удерживает внимание и вызывает доверие</p>
+          <p>Мне интересно работать с разными нишами: заведения — развлекательные и wellness, бренды одежды и косметики</p>
+        </div>
       </div>
-      <img class="about-photo" src="https://sun9-32.vkuserphoto.ru/s/v1/ig2/wqYwoHeYNMM4flcX6NxWDa6XR7Hfa-RzNIt3fncjE28lxUrjoiuE7EN0Aos2t3uK2fIu8XTjqfZS5wNmlGerM5_X.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1536x2048&from=bu&u=UV-mruQr68Y_uT2AWniX987bEotD5RVFGbiFAvVj010&cs=1536x0" alt="Дарья Мамаева">
-    </div>
-  </div>
-</section>
-
-<!-- WHY ME / STATS -->
-<section id="why-me" class="stats-section">
-  <div class="wrap">
-    <span class="eyebrow">[ почему я ]</span>
-    <h2 class="section-title">Доверие, которое считывается с первого кадра</h2>
-    <div class="stats-grid">
-      <div class="stat-item">
-        <div class="stat-num">🔥</div>
-        <div class="stat-label">Знаю, как сделать виральный контент</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">✨</div>
-        <div class="stat-label">Нативная подача</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">📈</div>
-        <div class="stat-label">Высокий уровень вовлечённости зрителей</div>
+      <div class="fade-up" style="transition-delay:.3s">
+        <img class="about-photo" referrerpolicy="no-referrer" src="https://sun9-32.vkuserphoto.ru/s/v1/ig2/wqYwoHeYNMM4flcX6NxWDa6XR7Hfa-RzNIt3fncjE28lxUrjoiuE7EN0Aos2t3uK2fIu8XTjqfZS5wNmlGerM5_X.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1536x2048&from=bu&u=UV-mruQr68Y_uT2AWniX987bEotD5RVFGbiFAvVj010&cs=1536x0" alt="Дарья Мамаева" />
       </div>
     </div>
   </div>
@@ -833,15 +437,15 @@
 <!-- FORMATS + SKILLS -->
 <section id="formats">
   <div class="wrap">
-    <span class="eyebrow">[ форматы и навыки ]</span>
-    <h2 class="section-title">Создаю форматы, которые работают на ваш бренд</h2>
+    <span class="eyebrow fade-up">[ форматы и навыки ]</span>
+    <h2 class="section-title fade-up" style="transition-delay:.1s">Создаю форматы, которые работают на ваш бренд</h2>
 
     <div class="formats-head">
-      <div class="formats-note">
+      <div class="fade-up formats-note" style="transition-delay:.2s">
         <span class="tag-pill">как я работаю</span>
         <p>Помогаю бренду пройти путь от идеи до готового ролика: изучаю продукт, пишу сценарий, снимаю и монтирую материал, адаптирую под нужную площадку — так, чтобы контент выглядел нативно и вызывал доверие</p>
       </div>
-      <div class="tag-row">
+      <div class="fade-up tag-row" style="transition-delay:.3s">
         <span class="tag-pill">Сценарии</span>
         <span class="tag-pill">Съёмка</span>
         <span class="tag-pill">Монтаж</span>
@@ -850,29 +454,29 @@
 
     <div class="formats-columns">
       <div>
-        <div class="format-row">
+        <div class="fade-up format-row" style="transition-delay:.1s">
           <div class="format-title"><span class="num">(01)</span> UGC-обзоры</div>
           <div class="format-desc">Честная подача продукта глазами зрителя — от первого впечатления до вывода</div>
         </div>
-        <div class="format-row">
+        <div class="fade-up format-row" style="transition-delay:.2s">
           <div class="format-title"><span class="num">(02)</span> Trend</div>
           <div class="format-desc">Съёмка под актуальные тренды и переходы, чтобы удержать внимание в первые секунды</div>
         </div>
-        <div class="format-row">
+        <div class="fade-up format-row" style="transition-delay:.3s">
           <div class="format-title"><span class="num">(03)</span> Lifestyle</div>
           <div class="format-desc">Атмосферное видео, встраивающее продукт в повседневную жизнь</div>
         </div>
       </div>
       <div>
-        <div class="format-row">
+        <div class="fade-up format-row" style="transition-delay:.2s">
           <div class="format-title"><span class="num">(04)</span> Unboxing</div>
           <div class="format-desc">Живая распаковка с акцентом на эмоции и первое впечатление</div>
         </div>
-        <div class="format-row">
+        <div class="fade-up format-row" style="transition-delay:.3s">
           <div class="format-title"><span class="num">(05)</span> Веб-продукты</div>
           <div class="format-desc">Съёмка контента для сайтов и веб-сервисов — понятно и в фирменном стиле бренда</div>
         </div>
-        <div class="format-row">
+        <div class="fade-up format-row" style="transition-delay:.4s">
           <div class="format-title"><span class="num">(06)</span> Процесс-туториалы</div>
           <div class="format-desc">Пошаговая демонстрация использования продукта — понятно и по делу</div>
         </div>
@@ -882,65 +486,51 @@
 </section>
 
 <!-- PORTFOLIO -->
-<section id="portfolio" style="padding-top:0;">
+<section id="portfolio" style="padding-top:0">
   <div class="wrap">
-    <span class="eyebrow">[ портфолио и категории ]</span>
-    <h2 class="section-title">Категории, в которых я создаю контент</h2>
+    <span class="eyebrow fade-up">[ портфолио и категории ]</span>
+    <h2 class="section-title fade-up" style="transition-delay:.1s">Категории, в которых я создаю контент</h2>
+
+    <div class="portfolio-grid" id="portfolio-grid"></div>
   </div>
-  <div class="portfolio-grid">
-    <a class="portfolio-card" target="_blank" rel="noopener" style="display:block;background-image:url('https://img.youtube.com/vi/r4buhOoaDHk/hqdefault.jpg');" href="https://youtube.com/shorts/r4buhOoaDHk">
-      <span class="portfolio-tag">Обзоры заведений</span>
-      <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-    </a>
-    <a class="portfolio-card" target="_blank" rel="noopener" style="display:block;background-image:url('https://img.youtube.com/vi/GjuU49IZcic/hqdefault.jpg');" href="https://youtube.com/shorts/GjuU49IZcic">
-      <span class="portfolio-tag">Обзоры заведений</span>
-      <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-    </a>
-    <a class="portfolio-card" target="_blank" rel="noopener" style="display:block;background-image:url('https://img.youtube.com/vi/99IkwqLDTd8/hqdefault.jpg');" href="https://youtube.com/shorts/99IkwqLDTd8">
-      <span class="portfolio-tag">Веб-продукты</span>
-      <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-    </a>
-    <a class="portfolio-card" target="_blank" rel="noopener" style="display:block;background-image:url('https://img.youtube.com/vi/aczd6IvUlew/hqdefault.jpg');" href="https://youtube.com/shorts/aczd6IvUlew">
-      <span class="portfolio-tag">Веб-продукты</span>
-      <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-    </a>
-    <a class="portfolio-card" target="_blank" rel="noopener" style="display:block;background-image:url('https://img.youtube.com/vi/VUu8xQmd-Og/hqdefault.jpg');" href="https://youtube.com/shorts/VUu8xQmd-Og">
-      <span class="portfolio-tag">Fashion</span>
-      <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-    </a>
-    <a class="portfolio-card" target="_blank" rel="noopener" style="display:block;background-image:url('https://img.youtube.com/vi/-9zDJh0Yjf0/hqdefault.jpg');" href="https://youtube.com/shorts/-9zDJh0Yjf0">
-      <span class="portfolio-tag">Fashion</span>
-      <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-    </a>
+</section>
+
+<!-- STATISTICS -->
+<section id="statistics" style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow fade-up">[ статистика ]</span>
+    <h2 class="section-title fade-up" style="transition-delay:.1s">Результаты и показатели</h2>
+
+    <div class="stats-image-grid" id="stats-grid"></div>
   </div>
 </section>
 
 <!-- STRENGTHS -->
 <section id="strengths">
   <div class="wrap">
-    <span class="eyebrow">[ сильные стороны ]</span>
-    <h2 class="section-title">Доверие, качество, результат — в каждом проекте</h2>
+    <span class="eyebrow fade-up">[ сильные стороны ]</span>
+    <h2 class="section-title fade-up" style="transition-delay:.1s">Доверие, качество, результат — в каждом проекте</h2>
 
     <div class="strengths-top">
-      <div class="strength-card">Самостоятельно пишу сценарии и продумываю концепции<div class="diamond"></div></div>
-      <div class="strength-card">Понимаю задачи бизнеса и маркетинга<div class="diamond"></div></div>
-      <img class="strength-photo" src="https://sun9-27.vkuserphoto.ru/s/v1/ig2/Zwtj8ouLOGImUZSWFvXIjPID0nFBzZSdkqPd56ooT3ncEtf7gC0BCV6afIfRE9MtdNH-PUZeRPA9odBEURdXx2pF.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" alt="Дарья Мамаева">
+      <div class="fade-up strength-card" style="transition-delay:.1s">Самостоятельно пишу сценарии и продумываю концепции<div class="diamond"></div></div>
+      <div class="fade-up strength-card" style="transition-delay:.2s">Понимаю задачи бизнеса и маркетинга<div class="diamond"></div></div>
+      <div class="fade-up" style="transition-delay:.3s;display:flex">
+        <img class="strength-photo" referrerpolicy="no-referrer" src="https://sun9-27.vkuserphoto.ru/s/v1/ig2/Zwtj8ouLOGImUZSWFvXIjPID0nFBzZSdkqPd56ooT3ncEtf7gC0BCV6afIfRE9MtdNH-PUZeRPA9odBEURdXx2pF.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" alt="Дарья Мамаева" />
+      </div>
     </div>
 
-    <div class="strengths-grid" style="margin-bottom:24px;">
-      <img class="strength-photo" src="https://sun9-84.vkuserphoto.ru/s/v1/ig2/V6mkp8AhUBihGOnVbvGXX2LCQOY-FkFvoiknKkw5KF7FcRd2C_cRVfDdzWCKVjTa4X0R8f2dCkfJZnAzx4DEF17u.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=qbidxZl0qMdu0EjWwo02T_XQqqqfSkL2EsDzSmsX-0E&cs=1920x0" alt="Дарья Мамаева">
-      <div class="strength-card">Умею работать по ТЗ и соблюдать дедлайны<div class="diamond"></div></div>
-      <div class="strength-card">Создаю живой контент без ощущения рекламы<div class="diamond"></div></div>
+    <div class="strengths-grid" style="margin-bottom:24px">
+      <div class="fade-up" style="transition-delay:.1s;display:flex">
+        <img class="strength-photo" referrerpolicy="no-referrer" src="https://sun9-84.vkuserphoto.ru/s/v1/ig2/V6mkp8AhUBihGOnVbvGXX2LCQOY-FkFvoiknKkw5KF7FcRd2C_cRVfDdzWCKVjTa4X0R8f2dCkfJZnAzx4DEF17u.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=qbidxZl0qMdu0EjWwo02T_XQqqqfSkL2EsDzSmsX-0E&cs=1920x0" alt="Дарья Мамаева" />
+      </div>
+      <div class="fade-up strength-card" style="transition-delay:.2s">Умею работать по ТЗ и соблюдать дедлайны<div class="diamond"></div></div>
+      <div class="fade-up strength-card" style="transition-delay:.3s">Создаю живой контент без ощущения рекламы<div class="diamond"></div></div>
     </div>
 
     <div class="strengths-grid">
-      <div class="strength-card">Быстро вношу правки<div class="diamond"></div></div>
-      <div class="strength-card">Внимательно отношусь к визуалу, деталям и подаче бренда<div class="diamond"></div></div>
-      <div class="strength-card">Снимаю контент, который легко адаптировать под разные площадки<div class="diamond"></div></div>
-    </div>
-    <div class="strengths-grid" style="grid-template-columns:1fr 1fr 1fr;margin-top:24px;">
-      <div></div><div></div>
-      <a href="#contact" class="strength-cta">Обсудить проект</a>
+      <div class="fade-up strength-card" style="transition-delay:.1s">Быстро вношу правки<div class="diamond"></div></div>
+      <div class="fade-up strength-card" style="transition-delay:.2s">Внимательно отношусь к визуалу, деталям и подаче бренда<div class="diamond"></div></div>
+      <div class="fade-up strength-card" style="transition-delay:.3s">Снимаю контент, который легко адаптировать под разные площадки<div class="diamond"></div></div>
     </div>
   </div>
 </section>
@@ -948,52 +538,40 @@
 <!-- PROCESS -->
 <section id="process">
   <div class="wrap">
-    <span class="eyebrow">[ процесс ]</span>
-    <div class="process-head">
-      <h2 class="section-title" style="margin-bottom:0;">Со мной комфортно и просто работать</h2>
-      <p class="process-note">Каждый этап - это не просто шаг, а забота о вашем бренде и результате</p>
-    </div>
+    <span class="eyebrow fade-up">[ процесс ]</span>
 
-    <div class="process-row">
-      <div class="step-title"><span class="num">(01)</span> Изучаю продукт и целевую аудиторию</div>
-      <div class="step-desc">Пробую и тестирую продукт, смотрю на него глазами вашего клиента, чтобы контент был честным и живым</div>
+    <div class="process-row" style="margin-top:24px">
+      <div class="fade-up step-title"><span class="num">(01)</span> Изучаю продукт и целевую аудиторию</div>
+      <div class="fade-up step-desc" style="transition-delay:.1s">Пробую и тестирую продукт, смотрю на него глазами вашего клиента, чтобы контент был честным и живым</div>
     </div>
     <div class="process-row">
-      <div class="step-title"><span class="num">(02)</span> Согласовываем формат ролика</div>
-      <div class="step-desc">Обсуждаем формат съёмки, при необходимости собираю референсы</div>
-    </div>
-
-    <div class="process-photo-wrap">
-      <img class="process-photo" src="https://sun9-66.vkuserphoto.ru/s/v1/ig2/HdXy3lJE4sRIOnh_vK2If8zDNPp9NT3tg906SnpdhYFF4RPMKL0V3FFyJ3VGdHHs72zpJTqfX0rGH3Iu7UT8fuq3.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" alt="Дарья Мамаева">
-    </div>
-
-    <div class="process-row">
-      <div class="step-title"><span class="num">(03)</span> Снимаю материал</div>
-      <div class="step-desc">Монтирую материал в срок до недели</div>
+      <div class="fade-up step-title"><span class="num">(02)</span> Согласовываем формат ролика</div>
+      <div class="fade-up step-desc" style="transition-delay:.1s">Обсуждаем формат съёмки, при необходимости собираю референсы</div>
     </div>
     <div class="process-row">
-      <div class="step-title"><span class="num">(04)</span> Вношу правки</div>
-      <div class="step-desc">При необходимости вношу правки — быстро и без лишних вопросов</div>
+      <div class="fade-up step-title"><span class="num">(03)</span> Снимаю материал</div>
+      <div class="fade-up step-desc" style="transition-delay:.1s">Монтирую материал в срок до недели</div>
     </div>
     <div class="process-row">
-      <div class="step-title"><span class="num">(05)</span> Тестирую и публикую</div>
-      <div class="step-desc">Выкладываю ролик через пробный режим в нескольких вариантах — с разными хуками и оверлеями. Наиболее виральный выкладываю в основную сетку профиля</div>
+      <div class="fade-up step-title"><span class="num">(04)</span> Вношу правки</div>
+      <div class="fade-up step-desc" style="transition-delay:.1s">При необходимости вношу правки — быстро и без лишних вопросов</div>
+    </div>
+    <div class="process-row">
+      <div class="fade-up step-title"><span class="num">(05)</span> Тестирую и публикую</div>
+      <div class="fade-up step-desc" style="transition-delay:.1s">Выкладываю ролик через пробный режим в нескольких вариантах — с разными хуками и оверлеями. Наиболее виральный выкладываю в основную сетку профиля</div>
     </div>
   </div>
-  <img class="process-photo-band" src="https://sun9-71.vkuserphoto.ru/s/v1/ig2/GOHRTCKqXR2tNhZbBB_hn0gObhQEJDepqgRqGCXv5xxjTGYo_gs5TTEaUKoNi7P-9UYtGHxhjhh69Fbk5YM4l8Cp.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" alt="Дарья Мамаева">
+  <div class="fade-up" style="transition-delay:.2s;display:flex">
+    <img class="process-photo-band" referrerpolicy="no-referrer" src="https://sun9-71.vkuserphoto.ru/s/v1/ig2/GOHRTCKqXR2tNhZbBB_hn0gObhQEJDepqgRqGCXv5xxjTGYo_gs5TTEaUKoNi7P-9UYtGHxhjhh69Fbk5YM4l8Cp.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0" alt="Дарья Мамаева" />
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer id="contact">
   <div class="wrap">
-    <div class="footer-meta">
-      <span>Дарья Мамаева</span>
-      <span>Portfolio</span>
-      <span>2026</span>
-    </div>
     <div class="footer-inner">
-      <div class="footer-name">Давайте<br>работать<br>вместе</div>
-      <div class="footer-col">
+      <div class="fade-up footer-name" style="transition-delay:.1s">Давайте<br />работать<br />вместе</div>
+      <div class="fade-up footer-col" style="transition-delay:.2s">
         <h4>НАВИГАЦИЯ</h4>
         <a href="#about">обо мне</a>
         <a href="#formats">форматы</a>
@@ -1001,19 +579,19 @@
         <a href="#strengths">сильные стороны</a>
         <a href="#process">процесс</a>
       </div>
-      <div class="footer-col">
+      <div class="fade-up footer-col" style="transition-delay:.3s">
         <h4>КОНТАКТЫ</h4>
         <div class="contact-list">
-          <div class="contact-row"><span>Instagram</span><a href="https://instagram.com/dasha_mamaeva_" target="_blank" rel="noopener">@dasha_mamaeva_</a></div>
-          <div class="contact-row"><span>Telegram канал</span><a href="https://t.me/dsmamaeva" target="_blank" rel="noopener">dsmamaeva</a></div>
-          <div class="contact-row"><span>Telegram</span><a href="https://t.me/d_s_m" target="_blank" rel="noopener">@d_s_m</a></div>
+          <div class="contact-row"><span>Instagram</span><a href="https://instagram.com/dasha_mamaeva_" target="_blank" rel="noopener noreferrer">@dasha_mamaeva_</a></div>
+          <div class="contact-row"><span>Telegram канал</span><a href="https://t.me/dsmamaeva" target="_blank" rel="noopener noreferrer">dsmamaeva</a></div>
+          <div class="contact-row"><span>Telegram</span><a href="https://t.me/d_s_m" target="_blank" rel="noopener noreferrer">@d_s_m</a></div>
         </div>
         <div class="social-row">
-          <a class="social-icon" href="https://instagram.com/dasha_mamaeva_" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.3.15 4.8 1.7 5 5C22 8.5 22 8.9 22 12.1s0 3.6-.1 4.9c-.15 3.3-1.7 4.85-5 5-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-3.3-.15-4.85-1.7-5-5C2 15.7 2 15.3 2 12.1s0-3.6.1-4.9c.15-3.3 1.7-4.85 5-5C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.52 0-4.76.07-2.4.1-3.5 1.24-3.6 3.6C3.58 8.68 3.58 9.05 3.58 12s0 3.32.06 4.33c.1 2.36 1.2 3.5 3.6 3.6 1.24.06 1.6.07 4.76.07s3.52 0 4.76-.07c2.4-.1 3.5-1.24 3.6-3.6.06-1.01.06-1.38.06-4.33s0-3.32-.06-4.33c-.1-2.36-1.2-3.5-3.6-3.6C15.52 4 15.15 4 12 4zm0 3.4a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2zm0 1.8a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6zm4.8-2.15a1.08 1.08 0 1 1 0 2.15 1.08 1.08 0 0 1 0-2.15z"/></svg>
+          <a class="social-icon" href="https://instagram.com/dasha_mamaeva_" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.3.15 4.8 1.7 5 5C22 8.5 22 8.9 22 12.1s0 3.6-.1 4.9c-.15 3.3-1.7 4.85-5 5-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-3.3-.15-4.85-1.7-5-5C2 15.7 2 15.3 2 12.1s0-3.6.1-4.9c.15-3.3 1.7-4.85 5-5C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.52 0-4.76.07-2.4.1-3.5 1.24-3.6 3.6C3.58 8.68 3.58 9.05 3.58 12s0 3.32.06 4.33c.1 2.36 1.2 3.5 3.6 3.6 1.24.06 1.6.07 4.76.07s3.52 0 4.76-.07c2.4-.1 3.5-1.24 3.6-3.6.06-1.01.06-1.38.06-4.33s0-3.32-.06-4.33c-.1-2.36-1.2-3.5-3.6-3.6C15.52 4 15.15 4 12 4zm0 3.4a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2zm0 1.8a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6zm4.8-2.15a1.08 1.08 0 1 1 0 2.15 1.08 1.08 0 0 1 0-2.15z" /></svg>
           </a>
-          <a class="social-icon" href="https://t.me/dsmamaeva" target="_blank" rel="noopener" aria-label="Telegram">
-            <svg viewBox="0 0 24 24"><path d="M21.5 4.5 2.8 11.7c-1 .4-1 1.7.1 2l4.6 1.5 1.8 5.6c.2.7 1.1.9 1.6.4l2.6-2.5 4.7 3.5c.7.5 1.7.1 1.9-.7l3.1-14.9c.2-1-.7-1.9-1.7-1.6zM8.6 14.6l9.2-6.5c.3-.2.6.2.3.4l-7.6 7-1.2 3-.7-3.9z"/></svg>
+          <a class="social-icon" href="https://t.me/dsmamaeva" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+            <svg viewBox="0 0 24 24"><path d="M21.5 4.5 2.8 11.7c-1 .4-1 1.7.1 2l4.6 1.5 1.8 5.6c.2.7 1.1.9 1.6.4l2.6-2.5 4.7 3.5c.7.5 1.7.1 1.9-.7l3.1-14.9c.2-1-.7-1.9-1.7-1.6zM8.6 14.6l9.2-6.5c.3-.2.6.2.3.4l-7.6 7-1.2 3-.7-3.9z" /></svg>
           </a>
         </div>
       </div>
@@ -1022,5 +600,138 @@
   <div class="footer-bottom">© 2026 Дарья Мамаева</div>
 </footer>
 
+<script>
+// ---------- CUSTOM CURSOR ----------
+(function(){
+  var cursor = document.getElementById('cursor');
+  var x = -100, y = -100;
+  window.addEventListener('mousemove', function(e){
+    x = e.clientX; y = e.clientY;
+    cursor.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+    cursor.style.left = '0px';
+    cursor.style.top = '0px';
+  });
+})();
+
+// ---------- FADE UP ON SCROLL ----------
+(function(){
+  var els = document.querySelectorAll('.fade-up');
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(el){ observer.observe(el); });
+})();
+
+// ---------- PORTFOLIO (click to play) ----------
+(function(){
+  var videos = [
+    { id: 'r4buhOoaDHk', tag: 'Обзоры заведений', thumbnail: 'https://sun9-6.vkuserphoto.ru/s/v1/ig2/4I8_6RMdwhgiHSQ2InNd0w3LYYqjzWdYhfkqZjrH0PXybpJO5AmTOp7HOHB8ac__uQIOsRSQEK5Pr6QxMDpJah1Y.jpg?quality=95&as=32x58,48x86,72x129,108x194,160x288,240x432,360x648,480x863,540x971,636x1144&from=bu&u=n3DtOtUVKZcYgX2ZW2DG5EmzLNtcUAEr_WeBR48M4mw&cs=636x0' },
+    { id: 'GjuU49IZcic', tag: 'Обзоры заведений', thumbnail: 'https://sun9-50.vkuserphoto.ru/s/v1/ig2/0-tEGcs_ztmumnw0lZHvQuYtX72h-zbkynIgujdjgs3wDueMfuYDIUdXuTNKscPOG4McDydX5LLwEgarNR3Xcf8Z.jpg?quality=95&as=32x58,48x86,72x129,108x194,160x288,240x432,360x648,480x863,540x971,636x1144&from=bu&u=ROf7klGH0qnUwdNIpc5o4FF5So0qIhahImWhOAdK9XM&cs=636x0' },
+    { id: '99IkwqLDTd8', tag: 'Веб-продукты', thumbnail: 'https://sun9-39.vkuserphoto.ru/s/v1/ig2/yM0X-H1Pn8sQAbpNwipsoMjARVT9y5W9-fGAFaq1mUZWf2Vh4W_SM_ln-20zUfKk-VWFKs8egqU8h9FgmKhycpbe.jpg?quality=95&as=32x58,48x86,72x129,108x194,160x288,240x432,360x648,480x863,540x971,636x1144&from=bu&u=Uf0M8Te0F3yRJF1TmoMzeuKY5Ojl0r0oI9m4JkDOfwI&cs=636x0' },
+    { id: 'aczd6IvUlew', tag: 'Веб-продукты', thumbnail: 'https://sun9-26.vkuserphoto.ru/s/v1/ig2/TQrKOVhWIdDkvkSXbAIPr_TFq7l1MEvddFByj7CHELkl6yICQhiyRQK2zJOBvSuEbHAd2NWVy-J1GxQ9eo1xiv8E.jpg?quality=95&as=32x58,48x86,72x129,108x194,160x288,240x432,360x648,480x863,540x971,636x1144&from=bu&u=WXM7iDirS16aNvUJTaPpT_5f82g5RMlDT1B_PoiwRmM&cs=636x0' },
+    { id: 'VUu8xQmd-Og', tag: 'Fashion', thumbnail: 'https://sun9-78.vkuserphoto.ru/s/v1/ig2/hhrStmFpSuYM_xbdRFbd6V4iniyKndw19_TbGsY8MSvleoha33PYqVjeQGCJTaH_xjaVIgMf9KsHE82YI8h5reoc.jpg?quality=95&as=32x58,48x86,72x129,108x194,160x288,240x432,360x648,480x863,540x971,636x1144&from=bu&u=yvewHQzQS7WZSdCc11ewDwn6_KgB_PAm41um-xkLbsU&cs=636x0' },
+    { id: '-9zDJh0Yjf0', tag: 'Fashion', thumbnail: 'https://sun9-58.vkuserphoto.ru/s/v1/ig2/6SuN8FCK00n8SBuTZ8c2WQnvAUodgoAuXbE02t0fcklEMWJX1cKjU5Ko-GVzl-V5O6iMs80OJ5krdPWMnPEa3V1f.jpg?quality=95&as=32x58,48x86,72x129,108x194,160x288,240x432,360x648,480x863,540x971,636x1144&from=bu&u=PxSFBEsJ7s8EHarsy2FJX-LCqepnLHzY4eUZXyE7XKw&cs=636x0' }
+  ];
+
+  var grid = document.getElementById('portfolio-grid');
+  videos.forEach(function(video, idx){
+    var item = document.createElement('div');
+    item.className = 'fade-up portfolio-item';
+    item.style.transitionDelay = (idx * 0.1) + 's';
+
+    var tab = document.createElement('div');
+    tab.className = 'portfolio-tab';
+    tab.textContent = video.tag;
+
+    var card = document.createElement('div');
+    card.className = 'portfolio-card';
+    card.style.backgroundImage = "url('" + video.thumbnail + "')";
+    card.style.cursor = 'pointer';
+
+    var playBtn = document.createElement('span');
+    playBtn.className = 'play-btn';
+    playBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>';
+    card.appendChild(playBtn);
+
+    card.addEventListener('click', function(){
+      if(card.classList.contains('is-playing')) return;
+      card.classList.add('is-playing');
+      card.style.backgroundImage = 'none';
+      card.style.cursor = 'default';
+      card.innerHTML = '';
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube.com/embed/' + video.id + '?autoplay=1&mute=0';
+      iframe.allow = 'autoplay; encrypted-media';
+      iframe.allowFullscreen = true;
+      iframe.title = 'YouTube video player';
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.style.border = 'none';
+      card.appendChild(iframe);
+    });
+
+    item.appendChild(tab);
+    item.appendChild(card);
+    grid.appendChild(item);
+
+    // re-observe newly created fade-up elements
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    obs.observe(item);
+  });
+
+  // ---------- STATISTICS ----------
+  var stats = [
+    { id: 'stat1', tag: 'Статистика Reels с рекламой веб-продукта', src: 'https://sun9-88.vkuserphoto.ru/s/v1/ig2/1nZiZwSnCyqlXtfOVFdlxmfJIj46rwqvgq6u4vwquP0aY_g9DcYeewz2WIN4Qwsa_XGXdObB2FYbtRqkFZJSFgFj.jpg?quality=95&as=32x69,48x104,72x156,108x234,160x347,240x520,360x780,480x1041,540x1171,640x1387,720x1561,1080x2341,1179x2556&from=bu&u=KpkyNA5Sx2C9AS-P2-aPLjVuVo6Wa_9U2UZvbu2Bfgw&cs=1179x0' },
+    { id: 'stat2', tag: 'Статистика Reels с рекламой веб-продукта', src: 'https://sun9-49.vkuserphoto.ru/s/v1/ig2/TsKDqYNtdIYe_oPsuTyuKJorArb4oBEaSRwvFrz_4oq6Cva_duweIIF7yRx2UnNV05squjeyisOvZXcVB4woRYe2.jpg?quality=95&as=32x69,48x104,72x156,108x234,160x347,240x520,360x780,480x1041,540x1171,640x1387,720x1561,1080x2341,1179x2556&from=bu&cs=1179x0' },
+    { id: 'stat3', tag: 'Статистика Reels с рекламой заведения', src: 'https://sun9-72.vkuserphoto.ru/s/v1/ig2/lZY1ff4yDC97l6gQt7U1f5mtgE-pV3TqDF4A1vpOGAJyuPIVPz7uiUc5IsJmlUKS1v1WhJ84T9H9r-iWv2PuJZNb.jpg?quality=95&as=32x69,48x104,72x156,108x234,160x347,240x520,360x780,480x1041,540x1171,640x1387,720x1561,1080x2341,1179x2556&from=bu&cs=1179x0' },
+    { id: 'stat4', tag: 'Статистика Reels UGC для бренда одежды', src: 'https://sun9-20.vkuserphoto.ru/s/v1/ig2/qAsoxEPwFqKs-bTtvXbnv2Jo80-rpJMUHyF6ooLSqdzZubXDm8K3fr531tVZ70fSjJy14mv1pFdVcFbHgozPj7y6.jpg?quality=95&as=32x69,48x104,72x156,108x234,160x347,240x520,360x780,480x1041,540x1171,640x1387,720x1561,1080x2341,1179x2556&from=bu&cs=1179x0' },
+    { id: 'stat5', tag: 'Статистика просмотров за последний месяц', src: 'https://sun9-43.vkuserphoto.ru/s/v1/ig2/VD9OQrHWJ7u-oL7BOTgQMgqhTuNiK58CqlNWOcihP7eZdHCQbRXjDOeqzHHS5OOyyFXm0_bO8terFyn2xJrXNZ9T.jpg?quality=95&as=32x69,48x104,72x156,108x234,160x347,240x520,360x780,480x1041,540x1171,640x1387,720x1561,1080x2341,1179x2556&from=bu&cs=1179x0' },
+    { id: 'stat6', tag: 'Количество просмотров за последний месяц', src: 'https://sun9-4.vkuserphoto.ru/s/v1/ig2/ZE0F5BdARWYj9gN6vkTjOsscOUITgzDeOoaZf72FcWVKeyBrHzZh0BUXZ1EasOLqgP5sysqaKFI3VTIZ82ZxNx6o.jpg?quality=95&as=32x69,48x104,72x156,108x234,160x347,240x520,360x780,480x1041,540x1171,640x1387,720x1561,1080x2341,1179x2556&from=bu&cs=1179x0' },
+    { id: 'stat7', tag: 'Аудиторные показатели блога', src: 'https://sun9-13.vkuserphoto.ru/s/v1/ig2/PzwzwkkoiFaIFkuqPCpKFGMqAgeRVoau0tZX3iVOvIs83wm-FfvCjquhcoX7f2O6rWlz5bPxrgBVZsB4VAsIdGPM.jpg?quality=95&as=32x69,48x104,72x156,108x234,160x347,240x520,360x780,480x1041,540x1171,640x1387,720x1561,1080x2341,1179x2556&from=bu&cs=1179x0' },
+    { id: 'stat8', tag: 'Шапка профиля', src: 'https://sun9-48.vkuserphoto.ru/s/v1/ig2/Q6Id5reJFLgHp2ZLEX4HdeTaTB4MlHpl54g04d6w0vMLjoJN4-ghvzGPcSJEC6ywYANkV6mEGgy8LtvmoIXShuHz.jpg?quality=95&as=32x69,48x104,72x156,108x234,160x347,240x520,360x780,480x1041,540x1171,640x1387,720x1561,1080x2341,1179x2556&from=bu&u=KsB4nAIORf0XsbN-dF7lE8ahhYcIa5R4LWBRLPUo9b0&cs=1179x0' }
+  ];
+
+  var statsGrid = document.getElementById('stats-grid');
+  stats.forEach(function(stat, idx){
+    var item = document.createElement('div');
+    item.className = 'fade-up stats-item';
+    item.style.transitionDelay = (idx * 0.1) + 's';
+
+    var tab = document.createElement('div');
+    tab.className = 'stats-tab';
+    tab.textContent = stat.tag;
+
+    var card = document.createElement('div');
+    card.className = 'stats-card';
+    card.style.backgroundImage = "url('" + stat.src + "')";
+
+    item.appendChild(tab);
+    item.appendChild(card);
+    statsGrid.appendChild(item);
+
+    var obs2 = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          obs2.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    obs2.observe(item);
+  });
+})();
+</script>
 </body>
 </html>
