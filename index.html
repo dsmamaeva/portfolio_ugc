@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="referrer" content="no-referrer" />
 <title>Дарья Мамаева — креатор, блогер</title>
 <meta name="description" content="Дарья Мамаева — блогер и UGC-креатор. Beauty · Fashion." />
 <meta property="og:title" content="Дарья Мамаева — креатор, блогер" />
@@ -204,16 +203,15 @@ h2.section-title{
   position:relative;
   aspect-ratio:9/16;
   overflow:hidden;
-  background-size:cover;
-  background-position:center;
   border: 6px solid var(--folder-color, #C8B9A6);
   border-radius: 0 16px 16px 16px;
   z-index: 1;
   background-color: var(--folder-color, #C8B9A6);
 }
-.portfolio-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.28));pointer-events:none;}
+.portfolio-card .thumb-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.portfolio-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.28));pointer-events:none;z-index:1;}
 .portfolio-card.is-playing::after {display:none;}
-.play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(234,230,223,.9);display:flex;align-items:center;justify-content:center;z-index:2;box-shadow: 0 4px 14px rgba(0,0,0,0.15);}
+.play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(234,230,223,.9);display:flex;align-items:center;justify-content:center;z-index:3;box-shadow: 0 4px 14px rgba(0,0,0,0.15);}
 .play-btn svg{width:20px;height:20px;fill:#100E0D;margin-left:3px;}
 
 /* ---------- STATISTICS ---------- */
@@ -266,13 +264,12 @@ h2.section-title{
   position:relative;
   aspect-ratio:9/16;
   overflow:hidden;
-  background-size:cover;
-  background-position:center;
   border: 4px solid var(--folder-color, #C8B9A6);
   border-radius: 0 12px 12px 12px;
   z-index: 1;
   background-color: var(--folder-color, #C8B9A6);
 }
+.stats-card .thumb-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
 
 /* ---------- STRENGTHS ---------- */
 .strengths-top{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:24px;margin-bottom:24px;}
@@ -650,8 +647,14 @@ footer{background:#0A0908;color:var(--text);padding-top:70px;}
 
     var card = document.createElement('div');
     card.className = 'portfolio-card';
-    card.style.backgroundImage = "url('" + video.thumbnail + "')";
     card.style.cursor = 'pointer';
+
+    var thumbImg = document.createElement('img');
+    thumbImg.className = 'thumb-img';
+    thumbImg.src = video.thumbnail;
+    thumbImg.alt = video.tag;
+    thumbImg.referrerPolicy = 'no-referrer';
+    card.appendChild(thumbImg);
 
     var playBtn = document.createElement('span');
     playBtn.className = 'play-btn';
@@ -661,7 +664,6 @@ footer{background:#0A0908;color:var(--text);padding-top:70px;}
     card.addEventListener('click', function(){
       if(card.classList.contains('is-playing')) return;
       card.classList.add('is-playing');
-      card.style.backgroundImage = 'none';
       card.style.cursor = 'default';
       card.innerHTML = '';
       var iframe = document.createElement('iframe');
@@ -715,7 +717,13 @@ footer{background:#0A0908;color:var(--text);padding-top:70px;}
 
     var card = document.createElement('div');
     card.className = 'stats-card';
-    card.style.backgroundImage = "url('" + stat.src + "')";
+
+    var statImg = document.createElement('img');
+    statImg.className = 'thumb-img';
+    statImg.src = stat.src;
+    statImg.alt = stat.tag;
+    statImg.referrerPolicy = 'no-referrer';
+    card.appendChild(statImg);
 
     item.appendChild(tab);
     item.appendChild(card);
