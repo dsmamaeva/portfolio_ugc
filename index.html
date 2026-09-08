@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Имя Фамилия — UGC & Video Creator</title>
+<style>
+  :root{
+    --cream:#EEEAE0;
+    --cream-2:#E7E2D6;
+    --olive:#6E7A5C;
+    --olive-dark:#4B5440;
+    --text:#3E3A32;
+    --text-soft:#6B6759;
+    --line: rgba(62,58,50,0.15);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family: "Poppins","Segoe UI",sans-serif;
+    background:var(--cream);
+    color:var(--text);
+    line-height:1.5;
+  }
+
+  img{max-width:100%;display:block;}
+
+  a{color:inherit;text-decoration:none;}
+
+  .wrap{
+    max-width:1360px;
+    margin:0 auto;
+    padding:0 60px;
+  }
+
+  /* ---------- HEADER ---------- */
+
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--cream);
+    border-bottom:1px solid var(--line);
+  }
+
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:22px 60px;
+    max-width:1360px;
+    margin:0 auto;
+  }
+
+  .logo-name{
+    font-size:22px;
+    font-weight:700;
+    color:var(--olive-dark);
+    line-height:1.2;
+  }
+  .logo-sub{
+    font-size:13px;
+    color:var(--text-soft);
+    font-weight:400;
+  }
+
+  nav ul{
+    display:flex;
+    gap:44px;
+    list-style:none;
+  }
+
+  nav a{
+    font-size:16px;
+    color:var(--text);
+    padding:6px 0;
+    border-bottom:2px solid transparent;
+    transition:color .2s ease, border-color .2s ease;
+  }
+
+  nav a.active,
+  nav a:hover{
+    color:var(--text-soft);
+  }
+
+  .btn{
+    display:inline-block;
+    background:var(--olive);
+    color:#fff;
+    font-size:15px;
+    padding:14px 26px;
+    border-radius:6px;
+    border:none;
+    cursor:pointer;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .btn:hover{
+    background:var(--olive-dark);
+  }
+
+  /* ---------- HERO ---------- */
+
+  .hero{
+    position:relative;
+    min-height:78vh;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+    background:#1b1a16; /* fallback while video loads */
+  }
+
+  .hero-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:0;
+  }
+
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    background:linear-gradient(180deg, rgba(20,20,15,0) 45%, rgba(20,20,15,.55) 100%);
+  }
+
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    width:100%;
+    padding:60px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:30px;
+    flex-wrap:wrap;
+  }
+
+  .hero-tag{
+    color:#F3F0E7;
+    font-size:20px;
+    margin-bottom:6px;
+    font-weight:500;
+  }
+
+  .hero-title{
+    color:#F3F0E7;
+    font-size:clamp(48px, 8vw, 110px);
+    font-weight:800;
+    letter-spacing:-1px;
+    line-height:1;
+  }
+
+  .hero-side{
+    text-align:right;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:18px;
+  }
+
+  .hero-niche{
+    color:#F3F0E7;
+    font-size:16px;
+    opacity:.9;
+  }
+
+  .btn-outline{
+    display:inline-block;
+    background:rgba(110,122,92,.85);
+    color:#fff;
+    font-size:15px;
+    padding:14px 26px;
+    border-radius:6px;
+    border:1px solid rgba(255,255,255,.4);
+  }
+
+  /* ---------- SECTION shared ---------- */
+
+  section{
+    padding:110px 0;
+  }
+
+  .eyebrow{
+    display:inline-block;
+    font-size:15px;
+    color:var(--text-soft);
+    margin-bottom:26px;
+  }
+
+  h2.section-title{
+    font-size:clamp(34px, 4vw, 52px);
+    font-weight:700;
+    color:var(--olive-dark);
+    line-height:1.15;
+    max-width:900px;
+    margin-bottom:60px;
+  }
+
+  /* ---------- ABOUT ---------- */
+
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:50px;
+    align-items:start;
+  }
+
+  .about-intro{
+    font-size:22px;
+    line-height:1.5;
+  }
+
+  .about-detail p{
+    font-size:18px;
+    color:var(--text);
+    margin-bottom:22px;
+    line-height:1.6;
+  }
+  .about-detail strong{
+    color:var(--olive-dark);
+  }
+
+  .about-photo{
+    width:100%;
+    aspect-ratio:3/4;
+    object-fit:cover;
+    border-radius:2px;
+  }
+
+  .diamond{
+    width:38px;
+    height:38px;
+    background:var(--olive);
+    border-radius:8px;
+    transform:rotate(45deg);
+    margin-top:40px;
+  }
+
+  /* ---------- FORMATS ---------- */
+
+  .formats-columns{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0 90px;
+    max-width:1050px;
+    margin-left:auto;
+  }
+
+  .format-row{
+    display:flex;
+    align-items:baseline;
+    gap:20px;
+    padding:26px 0;
+    border-bottom:1px solid var(--line);
+    font-size:20px;
+  }
+  .format-row .num{
+    color:var(--olive-dark);
+    font-weight:600;
+    min-width:56px;
+  }
+
+  /* ---------- PORTFOLIO ---------- */
+
+  .portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:4px;
+  }
+
+  .portfolio-card{
+    position:relative;
+    aspect-ratio:3/4;
+    overflow:hidden;
+    background-size:cover;
+    background-position:center;
+  }
+
+  .portfolio-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.28));
+  }
+
+  .portfolio-tag{
+    position:absolute;
+    top:20px;
+    left:20px;
+    background:rgba(238,234,224,.85);
+    color:var(--text);
+    font-size:14px;
+    padding:8px 14px;
+    border-radius:4px;
+    z-index:2;
+  }
+
+  .play-btn{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    background:rgba(238,234,224,.9);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:2;
+  }
+  .play-btn svg{width:20px;height:20px;fill:var(--text);margin-left:3px;}
+
+  /* ---------- STRENGTHS ---------- */
+
+  .strengths-top{
+    display:grid;
+    grid-template-columns:1.1fr 1fr 1fr;
+    gap:24px;
+    margin-bottom:24px;
+  }
+
+  .strength-card{
+    border:1px solid var(--line);
+    padding:36px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    min-height:230px;
+    font-size:19px;
+  }
+
+  .strength-photo{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    border-radius:2px;
+  }
+
+  .strength-cta{
+    background:var(--olive);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+    min-height:230px;
+    border-radius:0;
+  }
+
+  .strengths-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:24px;
+  }
+
+  /* ---------- PROCESS ---------- */
+
+  .process-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:30px;
+    margin-bottom:50px;
+    flex-wrap:wrap;
+  }
+
+  .process-note{
+    max-width:340px;
+    font-size:18px;
+    color:var(--text-soft);
+    text-align:right;
+  }
+
+  .process-row{
+    display:grid;
+    grid-template-columns:520px 1fr;
+    gap:40px;
+    padding:30px 0;
+    border-bottom:1px solid var(--line);
+    align-items:center;
+  }
+
+  .process-row .num{
+    font-size:22px;
+    color:var(--olive-dark);
+    margin-right:22px;
+  }
+
+  .process-row .step-title{
+    font-size:24px;
+    font-weight:600;
+    display:flex;
+    align-items:baseline;
+  }
+
+  .process-row .step-desc{
+    font-size:17px;
+    color:var(--text-soft);
+    line-height:1.6;
+  }
+
+  .process-photo-wrap{
+    display:flex;
+    justify-content:center;
+    margin:50px 0;
+  }
+  .process-photo{
+    width:260px;
+    height:320px;
+    object-fit:cover;
+    border-radius:4px;
+    transform:rotate(-3deg);
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+  }
+
+  .process-photo-band{
+    width:100%;
+    height:520px;
+    object-fit:cover;
+    margin-top:60px;
+  }
+
+  /* ---------- FOOTER ---------- */
+
+  footer{
+    background:var(--cream-2);
+    padding-top:70px;
+  }
+
+  .footer-inner{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr auto;
+    gap:40px;
+    padding-bottom:60px;
+  }
+
+  .footer-name{
+    font-size:44px;
+    font-weight:800;
+    color:var(--olive-dark);
+    align-self:flex-end;
+  }
+
+  .footer-col h4{
+    font-size:15px;
+    letter-spacing:.05em;
+    color:var(--text-soft);
+    margin-bottom:18px;
+  }
+
+  .footer-col a, .footer-col p{
+    display:block;
+    font-size:17px;
+    margin-bottom:12px;
+    color:var(--text);
+  }
+
+  .social-row{
+    display:flex;
+    gap:14px;
+    margin-top:18px;
+  }
+  .social-icon{
+    width:44px;
+    height:44px;
+    background:var(--olive);
+    border-radius:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .social-icon svg{width:20px;height:20px;fill:#fff;}
+
+  .footer-credit{
+    align-self:flex-start;
+    font-size:14px;
+    color:var(--text-soft);
+    text-decoration:underline;
+  }
+
+  .footer-disclaimer{
+    font-size:13px;
+    color:var(--text-soft);
+    text-align:right;
+    max-width:260px;
+    margin-left:auto;
+  }
+
+  .footer-bottom{
+    background:#161611;
+    color:#c9c6bc;
+    text-align:center;
+    padding:22px 0;
+    font-size:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+
+  @media (max-width: 900px){
+    .wrap{padding:0 24px;}
+    .nav-inner{padding:18px 24px;flex-wrap:wrap;gap:16px;}
+    nav ul{gap:20px;flex-wrap:wrap;}
+    section{padding:70px 0;}
+    .about-grid{grid-template-columns:1fr;}
+    .about-photo{aspect-ratio:16/10;}
+    .formats-columns{grid-template-columns:1fr;}
+    .portfolio-grid{grid-template-columns:1fr;}
+    .strengths-top, .strengths-grid{grid-template-columns:1fr;}
+    .process-row{grid-template-columns:1fr;gap:14px;}
+    .process-photo-band{height:280px;}
+    .footer-inner{grid-template-columns:1fr;}
+    .footer-disclaimer{text-align:left;margin-left:0;}
+    .hero-inner{padding:30px 24px;flex-direction:column;align-items:flex-start;}
+    .hero-side{align-items:flex-start;text-align:left;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div>
+      <div class="logo-name">Имя Фамилия</div>
+      <div class="logo-sub">ugc - creator</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#about">обо мне</a></li>
+        <li><a href="#formats">форматы</a></li>
+        <li><a href="#portfolio">портфолио</a></li>
+        <li><a href="#strengths">сильные стороны</a></li>
+        <li><a href="#process">процесс</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn">Обсудить проект</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <!--
+    Замените src на видео из вашего портфолио (mp4, до ~10 сек, без звука).
+    Атрибут poster показывает превью, пока видео грузится.
+  -->
+  <video
+    class="hero-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    poster="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1600&auto=format&fit=crop">
+    <source src="your-showreel.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">ugc&video creator</div>
+      <div class="hero-title">ИМЯ ФАМИЛИЯ</div>
+    </div>
+    <div class="hero-side">
+      <div class="hero-niche">Ваша ниша · Например: Beauty · Lifestyle</div>
+      <a href="#portfolio" class="btn-outline">Посмотреть портфолио</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <span class="eyebrow">[ обо мне ]</span>
+    <div class="about-grid">
+      <div class="about-intro">
+        Я - Имя Фамилия, UGC и video creator. Создаю эстетичный и живой контент, который выглядит как искренняя рекомендация, а не реклама
+        <div class="diamond"></div>
+      </div>
+      <div class="about-detail">
+        <p><strong>Более N лет</strong> работаю с видеоконтентом и продвижением продуктов. <strong>Благодаря опыту</strong> в продажах понимаю, как показать преимущества товара так, чтобы зритель захотел его купить</p>
+        <p>Для меня важно не просто снять красивое видео, а передать ценность продукта и вызвать доверие у аудитории</p>
+      </div>
+      <img class="about-photo" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=900&auto=format&fit=crop" alt="Фото автора">
+    </div>
+  </div>
+</section>
+
+<!-- FORMATS + PORTFOLIO INTRO -->
+<section id="formats">
+  <div class="wrap">
+    <span class="eyebrow">[ форматы ]</span>
+    <h2 class="section-title">Создаю форматы, которые работают на ваш бренд</h2>
+    <div class="formats-columns">
+      <div>
+        <div class="format-row"><span class="num">(01)</span> UGC-обзоры</div>
+        <div class="format-row"><span class="num">(02)</span> Trend</div>
+        <div class="format-row"><span class="num">(03)</span> Процесс-туториалы</div>
+      </div>
+      <div>
+        <div class="format-row"><span class="num">(04)</span> Lifestyle</div>
+        <div class="format-row"><span class="num">(05)</span> Unboxing</div>
+        <div class="format-row"><span class="num">(06)</span> Product Demo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" style="padding-top:0;">
+  <div class="wrap">
+    <span class="eyebrow">[ портфолио и категории ]</span>
+    <h2 class="section-title">Категории, в которых я создаю контент</h2>
+  </div>
+  <div class="portfolio-grid">
+    <div class="portfolio-card" style="background-image:url('https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=900&auto=format&fit=crop');">
+      <span class="portfolio-tag">Косметика</span>
+      <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+    </div>
+    <div class="portfolio-card" style="background-image:url('https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=900&auto=format&fit=crop');">
+      <span class="portfolio-tag">Уход за кожей</span>
+      <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+    </div>
+    <div class="portfolio-card" style="background-image:url('https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=900&auto=format&fit=crop');">
+      <span class="portfolio-tag">Beauty</span>
+      <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+    </div>
+  </div>
+</section>
+
+<!-- STRENGTHS -->
+<section id="strengths">
+  <div class="wrap">
+    <span class="eyebrow">[ сильные стороны ]</span>
+    <h2 class="section-title">Доверие, качество, результат — в каждом проекте</h2>
+
+    <div class="strengths-top">
+      <div class="strength-card">Самостоятельно пишу сценарии и продумываю концепции<div class="diamond"></div></div>
+      <div class="strength-card">Понимаю задачи бизнеса и маркетинга<div class="diamond"></div></div>
+      <img class="strength-photo" src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=800&auto=format&fit=crop" alt="Фото автора">
+    </div>
+
+    <div class="strengths-grid" style="margin-bottom:24px;">
+      <img class="strength-photo" src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=800&auto=format&fit=crop" alt="Фото автора">
+      <div class="strength-card">Умею работать по ТЗ и соблюдать дедлайны<div class="diamond"></div></div>
+      <div class="strength-card">Создаю живой контент без ощущения рекламы<div class="diamond"></div></div>
+    </div>
+
+    <div class="strengths-grid">
+      <div class="strength-card">Быстро вношу правки<div class="diamond"></div></div>
+      <div class="strength-card">Внимательно отношусь к визуалу, деталям и подаче бренда<div class="diamond"></div></div>
+      <div class="strength-card">Снимаю контент, который легко адаптировать под разные площадки<div class="diamond"></div></div>
+    </div>
+    <div class="strengths-grid" style="grid-template-columns:1fr 1fr 1fr;margin-top:24px;">
+      <div></div><div></div>
+      <a href="#contact" class="strength-cta">Обсудить проект</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <span class="eyebrow">[ процесс ]</span>
+    <div class="process-head">
+      <h2 class="section-title" style="margin-bottom:0;">Со мной комфортно и просто работать</h2>
+      <p class="process-note">Каждый этап - это не просто шаг, а забота о вашем бренде и результате</p>
+    </div>
+
+    <div class="process-row">
+      <div class="step-title"><span class="num">(01)</span> Знакомство и обсуждение цели проекта</div>
+      <div class="step-desc">Узнаю ваш бренд, продукт и задачу, кого вы хотите зацепить</div>
+    </div>
+    <div class="process-row">
+      <div class="step-title"><span class="num">(02)</span> Изучаю продукт и целевую аудиторию</div>
+      <div class="step-desc">Пробую и тестирую продукт, смотрю на него глазами вашего клиента, чтобы контент был честным и живым</div>
+    </div>
+    <div class="process-row">
+      <div class="step-title"><span class="num">(03)</span> Подготавливаю идею и сценарий</div>
+      <div class="step-desc">Придумываю концепцию, которая попадает в визуал и ценности бренда, пишу сценарий</div>
+    </div>
+    <div class="process-row">
+      <div class="step-title"><span class="num">(04)</span> Согласовываю детали</div>
+      <div class="step-desc">Показываю идею, обсуждаем детали. Утверждаем направление, и я готовлюсь к съёмке</div>
+    </div>
+    <div class="process-row">
+      <div class="step-title"><span class="num">(05)</span> Провожу съемку</div>
+      <div class="step-desc">Провожу съемку с естественным светом, эмоциями и вниманием к деталям</div>
+    </div>
+
+    <div class="process-photo-wrap">
+      <img class="process-photo" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=600&auto=format&fit=crop" alt="Фото автора">
+    </div>
+
+    <div class="process-row">
+      <div class="step-title"><span class="num">(06)</span> Выполняю монтаж и цветокоррекцию</div>
+      <div class="step-desc">Собираю видео, выстраиваю ритм, делаю цвет так, чтобы кадры попадали в стиль бренда</div>
+    </div>
+    <div class="process-row">
+      <div class="step-title"><span class="num">(07)</span> Вношу правки при необходимости</div>
+      <div class="step-desc">Если что-то хочется поправить, я на связи. Быстро и без лишних вопросов</div>
+    </div>
+    <div class="process-row">
+      <div class="step-title"><span class="num">(08)</span> Передаю готовые материалы в срок</div>
+      <div class="step-desc">Вы получаете готовый контент в срок. Качественно, аккуратно, без задержек</div>
+    </div>
+  </div>
+  <img class="process-photo-band" src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=1600&auto=format&fit=crop" alt="Фото автора">
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="wrap footer-inner">
+    <div class="footer-name">ИМЯ ФАМИЛИЯ</div>
+    <div class="footer-col">
+      <h4>НАВИГАЦИЯ</h4>
+      <a href="#about">обо мне</a>
+      <a href="#formats">форматы</a>
+      <a href="#portfolio">портфолио</a>
+      <a href="#strengths">сильные стороны</a>
+      <a href="#process">процесс</a>
+    </div>
+    <div class="footer-col">
+      <h4>КОНТАКТЫ</h4>
+      <p>свяжитесь со мной, и мы обсудим детали</p>
+      <div class="social-row">
+        <a class="social-icon" href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.3.15 4.8 1.7 5 5C22 8.5 22 8.9 22 12.1s0 3.6-.1 4.9c-.15 3.3-1.7 4.85-5 5-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-3.3-.15-4.85-1.7-5-5C2 15.7 2 15.3 2 12.1s0-3.6.1-4.9c.15-3.3 1.7-4.85 5-5C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.52 0-4.76.07-2.4.1-3.5 1.24-3.6 3.6C3.58 8.68 3.58 9.05 3.58 12s0 3.32.06 4.33c.1 2.36 1.2 3.5 3.6 3.6 1.24.06 1.6.07 4.76.07s3.52 0 4.76-.07c2.4-.1 3.5-1.24 3.6-3.6.06-1.01.06-1.38.06-4.33s0-3.32-.06-4.33c-.1-2.36-1.2-3.5-3.6-3.6C15.52 4 15.15 4 12 4zm0 3.4a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2zm0 1.8a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6zm4.8-2.15a1.08 1.08 0 1 1 0 2.15 1.08 1.08 0 0 1 0-2.15z"/></svg>
+        </a>
+        <a class="social-icon" href="#" aria-label="Telegram">
+          <svg viewBox="0 0 24 24"><path d="M21.5 4.5 2.8 11.7c-1 .4-1 1.7.1 2l4.6 1.5 1.8 5.6c.2.7 1.1.9 1.6.4l2.6-2.5 4.7 3.5c.7.5 1.7.1 1.9-.7l3.1-14.9c.2-1-.7-1.9-1.7-1.6zM8.6 14.6l9.2-6.5c.3-.2.6.2.3.4l-7.6 7-1.2 3-.7-3.9z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <a class="footer-credit" href="#">Разработка сайта</a>
+      <!-- при необходимости добавьте сюда юридическую пометку (например, о запрещённых в РФ соцсетях) -->
+      <p class="footer-disclaimer" style="margin-top:40px;"></p>
+    </div>
+  </div>
+  <div class="footer-bottom">Made on Tilda</div>
+</footer>
+
+</body>
+</html>
